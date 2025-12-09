@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="The page where you can find all the IT stuff for begginers all by purely me, Pushkar."
+    />
+    <meta
+      name="keywords"
+      content="information-technology, it, technology, studies, notes, computer-science"
+    />
+    <meta http-equiv="refresh" content="90"
+    https://www.github.com/pushkar-parate>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <title>Arsenal of Stuff</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 11px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: #667eea;
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: #1277f3bc;
+        transition: background-color 1s ease;
+        cursor: grab;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #eaeaea;
+        border-radius: 0px;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        color: #333;
+      }
+
+      main {
+        background: linear-gradient(135deg, #a4b0e2 0%, #9d71cb 100%);
+      }
+
+      nav {
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        padding: 1.2rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 8px 10px rgba(106, 127, 189, 0.208),
+          0 2px 10px rgba(0, 0, 0, 0.2);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(10px);
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 900;
+        color: white;
+        letter-spacing: 1px;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      div.logo:hover {
+        transform: translateY(-1.5px);
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 3rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-weight: 600;
+        font-size: 1.05rem;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 0.5rem 0;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: white;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        transform: translateY(-2px);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .search-box {
+        display: flex;
+        gap: 0.8rem;
+        align-items: center;
+      }
+
+      .search-box input {
+        padding: 0.75rem 1.2rem;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 25px;
+        width: 220px;
+        background: rgba(255, 255, 255, 0.15);
+        color: white;
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+
+      .search-box input::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .search-box input:focus {
+        outline: none;
+        border-color: white;
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      }
+
+      .search-box button {
+        padding: 0.75rem 1.5rem;
+        background: white;
+        color: #667eea;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      .search-box button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      }
+
+      .search-box button:active {
+        transform: translateY(0);
+      }
+
+      .hero {
+        text-align: center;
+        color: white;
+        padding: 5rem 2rem;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: white;
+        color: #667eea;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        color: #526fef;
+        background: #f8f8f8;
+        transition: transform 0.3s ease-in, background-color 0.5s ease,
+          color 0.4s ease;
+      }
+
+      .mybutton:hover {
+        transform: translateY(-2px);
+        color: #526fef;
+        background: #f8f8f8;
+        transition: transform 0.3s ease-in, background-color 0.5s ease,
+          color 0.4s ease;
+      }
+
+      .content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .categories {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .card {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.067);
+        transition: transform 0.367s;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+      }
+
+      .card a {
+        display: inline-block;
+        color: #667eea;
+        text-decoration: none;
+        font-weight: bolder;
+        font-size: larger;
+      }
+
+      .cardsymbol {
+        text-align: center;
+        font-size: 25px;
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      footer {
+        background: rgba(0, 0, 0, 0.2);
+        color: white;
+        text-align: center;
+        padding: 2rem;
+        margin-top: 0.5rem;
+      }
+
+      .social-links {
+        margin: 1rem 0;
+      }
+
+      .social-links a {
+        color: white;
+        margin: 0 1rem;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">My Stuff!</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#notes">Notes</a></li>
+          <li><a href="#tools">Tools</a></li>
+        </ul>
+        <div class="search-box" class="mybutton">
+          <input type="text" placeholder="Search notes & tools..." />
+          <button>Search</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="hero">
+        <h1>Welcome to My Portfolio</h1>
+        <p>
+          Sharing notes and tools on projects of fields like IT and Programming
+        </p>
+        <a href="#notes" class="cta-button">Explore Now</a>
+      </div>
+
+      <div class="content">
+        <div class="categories">
+          <div class="card">
+            <a href="#">
+              <div class="cardsymbol">Command Prompt</div>
+            </a>
+          </div>
+          <div class="card" class="mybutton">
+            <a href="#">
+              <div class="cardsymbol">Networking</div>
+            </a>
+          </div>
+          <div class="card" class="mybutton">
+            <a href="#">
+              <div class="cardsymbol">Batch Scripting</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://github.com/pushkar-parate" target="_blank">GitHub</a>
+        <a href="https://instagram.com/btw.pushkar.31" target="_blank"
+          >Instagram</a
+        >
+      </div>
+    </footer>
+  </body>
+</html>
