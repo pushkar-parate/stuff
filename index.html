@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta
       name="description"
       content="The page where you can find all the IT stuff for begginers all by purely me, Pushkar."
@@ -13,24 +14,32 @@
     />
     <meta http-equiv="refresh" content="90"
     https://www.github.com/pushkar-parate>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="/Projects/GitHub/Home/Images/favicon.ico"
+      type="image/x-icon"
+    />
+
     <title>Arsenal of Stuff</title>
 
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      :root {
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --text: #0f172a;
+        --muted: #64748b;
+        --accent: #4f46e5;
+        --border: #e5e7eb;
       }
 
       /* Scrollbar */
       ::-webkit-scrollbar {
-        width: 11px;
+        width: 8px;
       }
 
       ::-webkit-scrollbar-thumb {
         background-color: #667eea;
-        border-radius: 10px;
+        border-radius: 7px;
       }
 
       ::-webkit-scrollbar-thumb:hover {
@@ -44,78 +53,109 @@
         border-radius: 0px;
       }
 
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        min-height: 100vh;
-        color: #333;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
       }
 
-      main {
-        background: linear-gradient(135deg, #a4b0e2 0%, #9d71cb 100%);
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      p {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+
+      #foot {
+        padding-bottom: 5px;
+        padding-top: 5px;
+      }
+
+      /* ---------- NAV ---------- */
+
+      header {
+        position: sticky;
+        top: 0;
+        background: rgba(248, 250, 252, 0.9);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--border);
+        z-index: 10;
       }
 
       nav {
-        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(90deg, #f8f8f8bd 0%, #fffbfb 100%);
+        max-width: 1200px;
+        margin: auto;
         padding: 1.2rem 2rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        box-shadow: 0 8px 10px rgba(106, 127, 189, 0.208),
-          0 2px 10px rgba(0, 0, 0, 0.2);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        backdrop-filter: blur(10px);
       }
 
       .logo {
-        font-size: 1.8rem;
-        font-weight: 900;
-        color: white;
-        letter-spacing: 1px;
-        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: var(--accent);
+        text-shadow: #0f172a33 4px 3px 4px;
       }
 
-      div.logo:hover {
-        transform: translateY(-1.5px);
-        transition: transform 0.3s ease;
+      .logo:hover {
+        transform: scale(1.03);
+        transition: transform 0.4s ease;
         cursor: pointer;
       }
 
       .nav-links {
-        display: flex;
-        gap: 3rem;
         list-style: none;
+        display: flex;
+        gap: 2rem;
       }
 
       .nav-links a {
-        text-decoration: none;
-        color: white;
         font-weight: 600;
-        font-size: 1.05rem;
-        transition: all 0.3s ease;
+        font-size: 0.95rem;
+        color: var(--text);
+        font-weight: 650;
+        padding-bottom: 6px;
         position: relative;
-        padding: 0.5rem 0;
-      }
-
-      .nav-links a::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 3px;
-        background: white;
-        transition: width 0.3s ease;
       }
 
       .nav-links a:hover {
-        transform: translateY(-2px);
+        color: var(--accent);
+        transition: all 0.3s ease;
+        text-shadow: none;
       }
 
-      .nav-links a:hover::after {
+      /* underline */
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
         width: 100%;
+        height: 2px;
+        background: var(--accent);
+
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s ease;
+      }
+
+      /* hover animation */
+      .nav-links a:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
       }
 
       .search-box {
@@ -126,22 +166,24 @@
 
       .search-box input {
         padding: 0.75rem 1.2rem;
-        border: 2px solid rgba(255, 255, 255, 0.3);
+        border: 2px solid rgba(255 255 255 / 66%);
         border-radius: 25px;
         width: 220px;
-        background: rgba(255, 255, 255, 0.15);
+        background: #453ce3be;
         color: white;
         transition: all 0.3s ease;
         font-weight: 500;
+        font-family: Comic Sans MS;
       }
 
       .search-box input::placeholder {
-        color: rgba(255, 255, 255, 0.7);
+        color: rgb(156, 150, 237);
       }
 
       .search-box input:focus {
         outline: none;
-        border-color: white;
+        color: var(--accent);
+        border-color: #453ce3;
         background: rgba(255, 255, 255, 0.25);
         box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
       }
@@ -167,10 +209,24 @@
         transform: translateY(0);
       }
 
+      /* ---------- SECTIONS (ANIMATION BASE) ---------- */
+
+      .fade-section {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .fade-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ---------- HERO ---------- */
+
       .hero {
         text-align: center;
-        color: white;
-        padding: 5rem 2rem;
+        padding: 6rem 2rem 4rem;
       }
 
       .hero h1 {
@@ -179,105 +235,129 @@
       }
 
       .hero p {
-        font-size: 1.2rem;
+        color: var(--muted);
+        font-size: 1.15rem;
         margin-bottom: 2rem;
       }
 
       .cta-button {
         display: inline-block;
-        padding: 1rem 2rem;
-        background: white;
-        color: #667eea;
-        text-decoration: none;
-        border-radius: 5px;
-        font-weight: bold;
+        padding: 0.9rem 1.8rem;
+        background: var(--accent);
+        color: white;
+        border-radius: 8px;
+        font-weight: 600;
       }
 
       .cta-button:hover {
         transform: translateY(-2px);
-        color: #526fef;
-        background: #f8f8f8;
-        transition: transform 0.3s ease-in, background-color 0.5s ease,
-          color 0.4s ease;
+        transition: transform 0.3s ease;
       }
 
-      .mybutton:hover {
-        transform: translateY(-2px);
-        color: #526fef;
-        background: #f8f8f8;
-        transition: transform 0.3s ease-in, background-color 0.5s ease,
-          color 0.4s ease;
-      }
+      /* ---------- CONTENT ---------- */
 
       .content {
         max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem;
+        margin: auto;
+        padding: 4rem 2rem;
       }
+
+      #profile-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 3rem;
+        flex-wrap: wrap;
+        background: #0f172a33;
+        border: 0.3px solid black;
+      }
+
+      #profile-section img {
+        width: 280px;
+        height: 280px;
+        object-fit: cover;
+        border-radius: 20px;
+        border: 1.8px solid var(--border);
+        padding: 10px;
+        float: right;
+        border: #1e1e1e 2px solid;
+      }
+
+      #profile {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      /* ---------- CARDS ---------- */
 
       .categories {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         gap: 2rem;
-        margin: 3rem 0;
+        margin-top: 2rem;
       }
 
       .card {
-        background: white;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
         padding: 2rem;
-        border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.067);
-        transition: transform 0.367s;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
       .card:hover {
-        transform: translateY(-4px);
-      }
-
-      .card a {
-        display: inline-block;
-        color: #667eea;
-        text-decoration: none;
-        font-weight: bolder;
-        font-size: larger;
+        transform: translateY(-6px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
       }
 
       .cardsymbol {
-        text-align: center;
-        font-size: 25px;
-        font-family: "Times New Roman", Times, serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--accent);
       }
 
+      /* ---------- FOOTER ---------- */
+
       footer {
-        background: rgba(0, 0, 0, 0.2);
-        color: white;
         text-align: center;
-        padding: 2rem;
-        margin-top: 0.5rem;
+        padding: 1rem 1rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+        background: #0f172a;
       }
 
       .social-links {
-        margin: 1rem 0;
+        margin-top: 1rem;
       }
 
       .social-links a {
-        color: white;
         margin: 0 1rem;
-        text-decoration: none;
-        font-weight: bold;
+        font-weight: 600;
+        color: white;
+      }
+
+      .social-links a {
+        color: #e5e7eb;
+        transition: color 0.3s ease;
       }
     </style>
   </head>
+
   <body>
     <header>
       <nav>
-        <div class="logo">My Stuff!</div>
+        <a href="index.html"><div class="logo">My Stuff!</div></a>
+
         <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#notes">Notes</a></li>
-          <li><a href="#tools">Tools</a></li>
+          <li><a href="#profile-section">About Me</a></li>
+          <li><a href="#notes-section">Notes</a></li>
+          <li><a href="#tools">Tools & Projects</a></li>
+          <li><a href="#contacts">Contact</a></li>
         </ul>
-        <div class="search-box" class="mybutton">
+
+        <div class="search-box">
           <input type="text" placeholder="Search notes & tools..." />
           <button>Search</button>
         </div>
@@ -285,43 +365,82 @@
     </header>
 
     <main>
-      <div class="hero">
-        <h1>Welcome to My Portfolio</h1>
+      <section class="hero fade-section">
+        <h1>Welcome to the STUFF ..!</h1>
         <p>
-          Sharing notes and tools on projects of fields like IT and Programming
+          Where I Share notes and tools and my projects of fields of IT and
+          Programming <br />
+          All Made by me, Pushkar
         </p>
-        <a href="#notes" class="cta-button">Explore Now</a>
-      </div>
+        <a href="#notes-section" class="cta-button">Explore Notes</a>
+      </section>
 
-      <div class="content">
+      <section class="content fade-section" id="profile-section">
+        <div id="profile">
+          <div id="profile-text">
+            <h1>Pushkar Parate</h1>
+            <p>
+              <em>Student + State-Level BasketBall Athlete</em> <br />
+              I am a student of CyberSecurity, also interested in Frontend Web
+              Development at Jain University Banglore, literally one of the best
+              BasketBall Universities to level upto Nationals.
+            </p>
+
+            <p>
+              Obviously, this Page is a creation of my Curiosity and also the
+              useful notes made through my High School and College Life which
+              may not be exploited or copyrighted but freely consumed. I also
+              would accept some change suggestions from you. ❤️
+            </p>
+          </div>
+          <img
+            src="/Projects/GitHub/Home/Images/PFP.png"
+            alt="Pushkar Parate"
+          />
+        </div>
+      </section>
+
+      <section class="content fade-section" id="notes-section">
         <div class="categories">
           <div class="card">
-            <a href="#">
-              <div class="cardsymbol">Command Prompt</div>
-            </a>
+            <a href="#"><div class="cardsymbol">Command Prompt</div></a>
           </div>
-          <div class="card" class="mybutton">
-            <a href="#">
-              <div class="cardsymbol">Networking</div>
-            </a>
+          <div class="card">
+            <a href="#"><div class="cardsymbol">Networking</div></a>
           </div>
-          <div class="card" class="mybutton">
-            <a href="#">
-              <div class="cardsymbol">Batch Scripting</div>
-            </a>
+          <div class="card">
+            <a href="#"><div class="cardsymbol">Batch Scripting</div></a>
           </div>
         </div>
-      </div>
+      </section>
     </main>
 
-    <footer>
+    <footer id="contacts">
       <p>&copy; 2024 My Portfolio. All rights reserved.</p>
       <div class="social-links">
         <a href="https://github.com/pushkar-parate" target="_blank">GitHub</a>
         <a href="https://instagram.com/btw.pushkar.31" target="_blank"
           >Instagram</a
         >
+        <p id="foot">Made with ❤️ for 🤓</p>
       </div>
     </footer>
+
+    <script>
+      const sections = document.querySelectorAll(".fade-section");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.6 }
+      );
+
+      sections.forEach((section) => observer.observe(section));
+    </script>
   </body>
 </html>
