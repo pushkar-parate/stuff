@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Batch Scripting and basic Command Line for Absolute Begginers free of cost."
+    />
+    <meta
+      name="keywords"
+      content="batch, cmd, ms-dos, scripting, programming"
+    />
+    <meta http-equiv="refresh" content="500";
+    https://www.github.com/pushkar-parate/ />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <title>Command Cheat Sheet</title>
+  </head>
+
+  <body>
+    <header>
+      <!-- Fixed Sidebar -->
+      <nav id="sidebar" aria-label="Page contents">
+        <h2>Contents</h2>
+        <ul id="nav-list"></ul>
+      </nav>
+    </header>
+    <button class="menu-toggle" aria-label="Open menu">☰</button>
+
+    <main class="max">
+      <div class="hero">
+        <h1>CMD Cheat Sheet</h1>
+
+        <p>
+          <em>
+            All by King Cobra, Appreciate the work by commenting on contacting.
+          </em>
+        </p>
+        <p>
+          <a href="./dos-commands.txt"
+            >Click Here to Access All Commands Text File.</a
+          >
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>SPECIAL CHARACTERS & SYMBOLS</h2>
+        <pre><code>
+        >        Redirect output to file (overwrite): echo test > file.txt
+        >>       Append output to file: echo another >> file.txt
+        <        Input from file: sort < list.txt
+        |        Pipe output: dir | findstr "log"
+        &        Run multiple commands: echo hi & dir
+        &&       Run next only if previous succeeds: mkdir test && cd test
+        ||       Run next only if previous fails: dir nofolder || echo failed
+        ^        Escape special characters: echo ^& prints &
+        *        Wildcard (many): del *.txt
+        ?        Wildcard (one): file?.txt matches file1.txt
+        "        Use for paths with spaces: "C:\My Folder\file.txt"
+        \        Directory separator
+   </code></pre>
+      </div>
+
+      <div class="section">
+        <h2>FILE & DIRECTORY MANIPULATION</h2>
+        <pre><code>
+        dir                           List files and folders
+        dir /s /b                     Full path of all files recursively
+        cd ..                         Go one level up
+        cd \                          Go to root
+        mkdir test                    Creates "test" directory
+        del /f /s /q *.log            Force delete .log files silently
+        copy file1.txt D:\            Copy to D:\
+        xcopy /e /h /k /y s\ d\       Copy all (hidden too)
+        robocopy src dest /mir        Mirror folders
+        move file.txt D:\arc\         Move or rename
+        attrib +h +s file.txt         Hide file
+        ren old.txt new.txt           Rename file
+        tree /f                       Show folder structure with files
+        type file.txt                 Print contents
+   </code></pre>
+      </div>
+
+      <div class="section">
+        <h2>TASK CONTROL & OBSERVATION</h2>
+        <pre><code>
+        tasklist                    List running tasks
+        taskkill /pid [pid]         Kill a task [/f for forcefully]
+        sc query                    List all services
+        sc query windefend          Get info for windefend
+        sc query | findstr ""       Find serviice names by str
+        </code></pre>
+      </div>
+
+      <div class="section">
+        <h2>SYSTEM & VERSION INFO</h2>
+        <pre><code>
+        ver                      Windows version
+        winver                   GUI version window
+        vol C:                   Show volume label
+        whoami                   Username and hostname
+        slmgr.vbs -dli           License info
+        slmgr.vbs -xpr           License expiry
+        slmgr.vbs -ato           Activate Windows
+        hostname                 Show machine name
+        echo %username%          Logged in user
+    </code></pre>
+      </div>
+
+      <div class="section">
+        <h2>ASSOC & FTYPE for FILE ASSOCIATIONS</h2>
+
+        <h3>ASSOC</h3>
+        <p>Use the <code>assoc</code> command to list of ftype associations</p>
+
+        <pre>assoc .xmlfile=XmlFileLegacy.8</pre>
+
+        <p>
+          Set the ftype and also use it to view individual ftypes but only
+          writing the extension without "=" Remove the associations by a blank =
+        </p>
+
+        <pre>assoc .txt=</pre>
+
+        <h3>FTYPE</h3>
+        <p>
+          Its literally <code>assoc</code> but <code>ftype</code> is used for
+          File-to-Program associations, it means that
+        </p>
+
+        <pre>
+.txt=textfilelgacy      &
+textfilelegacy="C:/Programs/text.exe"</pre
+        >
+
+        <p>
+          So, <code>ftype</code> sets the program for the ftype whereas
+          <code>assoc</code> sets extension for ftype
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>NETWORKING ESSENTIALS</h2>
+        <pre>
+        ipconfig /all                   Full adapter info
+        ipconfig /release               Drop IP lease
+        ping google.com                 Check host reachability
+        tracert google.com              Trace route
+        netstat -b                      Display the services and apps responsible for processes
+        netstat -o                      Display their respective PID
+        netstat -an | findstr ":80"
+        netstat -anob                   # Best to use command #
+        netstat -r                      Display the Routing Table
+        arp -a                          IP ↔ MAC mappings
+        arp -s/-d                       Add/ Delete MAC from arp cache
+        route print                     Routing table
+        nslookup google.com             DNS lookup
+        getmac                          Show MAC addresses
+    </pre
+        >
+      </div>
+
+      <div class="section">
+        <h2>DOSKEY</h2>
+        <!--To be Renewed-->
+      </div>
+
+      <div class="section">
+        <h2>NMAP TOOL TUTORIAL</h2>
+        <!--To be Renewed-->
+      </div>
+
+      <div class="section">
+        <h2>NETSH – NETWORK SHELL</h2>
+        <!--To be Renewed-->
+        <h3>Syntax Helpers</h3>
+        <ul>
+          <li><strong>add</strong>: Add config</li>
+          <li><strong>delete</strong>: Remove config</li>
+          <li><strong>set</strong>: Change config</li>
+          <li><strong>show</strong>: View config</li>
+          <li><strong>dump</strong>: Save to file</li>
+        </ul>
+
+        <h3>Wi-Fi</h3>
+        <pre>
+netsh wlan show profiles
+netsh wlan show profile name="SSID" key=clear
+netsh wlan delete profile name="SSID"
+netsh wlan export profile name="SSID" folder=C:\ key=clear
+    </pre
+        >
+
+        <h3>IP</h3>
+        <pre>
+netsh interface ip show config
+netsh interface ip set address "Ethernet" static 192.168.1.10 255.255.255.0 192.168.1.1
+netsh interface ip set dns "Ethernet" static 8.8.8.8
+netsh interface ip set address name="Ethernet" source=dhcp
+    </pre
+        >
+
+        <h3>Firewall</h3>
+        <pre>
+netsh advfirewall set allprofiles state off
+netsh advfirewall firewall add rule name="Allow8080" dir=in action=allow protocol=TCP localport=8080
+netsh advfirewall firewall delete rule name="Allow8080"
+    </pre
+        >
+
+        <h3>Portproxy</h3>
+        <pre>
+netsh interface portproxy add v4tov4 listenport=8080 connectaddress=192.168.1.5 connectport=80
+    </pre
+        >
+
+        <h3>NAT</h3>
+        <pre>
+netsh routing ip nat install
+netsh routing ip nat add interface "Ethernet" full
+    </pre
+        >
+
+        <h3>Export/Import</h3>
+        <pre>
+netsh dump > config.txt
+netsh exec config.txt
+    </pre
+        >
+      </div>
+
+      <div class="section">
+        <h2>NET COMMAND – USERS, SERVICES, SHARING</h2>
+
+        <h3>1. <code>net view</code> — Discover Computers on the Network</h3>
+        <pre><code>net view</code></pre>
+        <p>
+          Lists all computers in your workgroup or domain that are accessible.
+          Use this to scan what devices are connected.
+        </p>
+
+        <pre><code>net view \\TargetComputer</code></pre>
+        <p>
+          Shows shared folders on a specific device. Good for initial visibility
+          of shares.
+        </p>
+        <hr />
+
+        <h3>2. <code>net user</code> — User Account Management</h3>
+        <pre><code>net user</code></pre>
+        <p>Shows all local accounts. Useful for auditing users on a system.</p>
+
+        <pre><code>net user Administrator</code></pre>
+        <p>Shows detailed info about the Administrator account.</p>
+
+        <pre><code>net user testuser Pass123! /add</code></pre>
+        <p>Creates a new user account with the specified password.</p>
+
+        <pre><code>net user testuser /delete</code></pre>
+        <p>Deletes the specified user.</p>
+
+        <pre><code>net user testuser /active:yes /expires:never /passwordchg:no</code></pre>
+        <p>
+          Activates the account, makes it non-expiring, and prevents password
+          change.
+        </p>
+        <hr />
+
+        <h3>3. <code>net localgroup</code> — Group Privileges</h3>
+        <pre><code>net localgroup</code></pre>
+        <p>Lists all local security groups.</p>
+
+        <pre><code>net localgroup Administrators testuser /add</code></pre>
+        <p>
+          Adds <code>testuser</code> to the <code>Administrators</code> group.
+          Gives high-level access.
+        </p>
+
+        <pre><code>net localgroup Administrators testuser /delete</code></pre>
+        <p>
+          Removes the user from the Admin group. Use this to lock down
+          privileges.
+        </p>
+        <hr />
+
+        <h3>4. <code>net session</code> — View Active Network Sessions</h3>
+        <pre><code>net session</code></pre>
+        <p>
+          Lists all open sessions with the local machine. Helpful for auditing
+          who is connected remotely.
+        </p>
+
+        <pre><code>net session \\TargetMachine /delete</code></pre>
+        <p>Forcefully ends a session.</p>
+        <hr />
+
+        <h3>5. <code>net use</code> — Map or Disconnect Network Drives</h3>
+        <pre><code>net use</code></pre>
+        <p>Shows all currently mapped drives.</p>
+
+        <pre><code>net use Z: \\PC1\Share</code></pre>
+        <p>Maps a shared folder to a drive letter.</p>
+
+        <pre><code>net use Z: /delete</code></pre>
+        <p>Disconnects the mapped drive.</p>
+
+        <pre><code>net use \\PC1\Share /user:Username Password</code></pre>
+        <p>
+          Maps a share with a specific user credential. Useful when accessing
+          admin shares.
+        </p>
+        <hr />
+
+        <h3>
+          6. <code>net statistics</code> — View System Uptime and Activity
+        </h3>
+        <pre><code>net statistics workstation</code></pre>
+        <p>
+          Shows when the system was last started and tracks stats like bytes
+          sent/received.
+        </p>
+
+        <pre><code>net statistics server</code></pre>
+        <p>Same as above, but for server role.</p>
+        <hr />
+
+        <h3>7. <code>net config</code> — System Role Information</h3>
+        <pre><code>net config workstation</code></pre>
+        <p>Shows config like workgroup, computer name, and active user.</p>
+
+        <pre><code>net config server</code></pre>
+        <p>Useful in server environments to view shared services.</p>
+        <hr />
+
+        <h3>8. <code>net time</code> — Sync or View Time from Network</h3>
+        <pre><code>net time</code></pre>
+        <p>Displays the time from a domain controller.</p>
+
+        <pre><code>net time /domain /set /yes</code></pre>
+        <p>Automatically syncs the system clock with the domain.</p>
+        <hr />
+
+        <h3>
+          9. <code>net start</code> and <code>net stop</code> — Control Windows
+          Services
+        </h3>
+        <pre><code>net start</code></pre>
+        <p>Lists all currently running services.</p>
+
+        <pre><code>net start "Windows Time"</code></pre>
+        <p>Starts the specified service.</p>
+
+        <pre><code>net stop "Spooler"</code></pre>
+        <p>
+          Stops the print spooler service. Useful in labs to test persistence or
+          service manipulation.
+        </p>
+        <hr />
+
+        <h3>10. <code>net accounts</code> — Password & Login Policy Control</h3>
+        <pre><code>net accounts</code></pre>
+        <p>Shows current password and logon rules.</p>
+
+        <pre><code>net accounts /minpwlen:10 /maxpwage:30 /minpwage:1</code></pre>
+        <p>
+          Sets the minimum password length, maximum and minimum password age.
+        </p>
+        <hr />
+
+        <h3>11. <code>net file</code> — Remote File Handling</h3>
+        <pre><code>net file</code></pre>
+        <p>Shows files that are opened remotely.</p>
+
+        <pre><code>net file [ID] /close</code></pre>
+        <p>
+          Forcefully closes a remote file. Use this to stop sessions if needed.
+        </p>
+
+        <hr />
+
+        <h3>12. <code>net share</code> — Manage Shared Folders</h3>
+        <pre><code>net share</code></pre>
+        <p>Lists all currently shared folders.</p>
+
+        <pre><code>net share MyShare=C:\\Folder /grant:everyone,full</code></pre>
+        <p>
+          Shares <code>C:\\Folder</code> as <code>MyShare</code> with full
+          access to everyone. Use <strong>only in test environments</strong>.
+        </p>
+
+        <pre><code>net share MyShare /delete</code></pre>
+        <p>Removes the share.</p>
+
+        <hr />
+
+        <h3>13. Deprecated or Skippable Commands</h3>
+        <div class="wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Command</th>
+                <th>Why You Can Skip It</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>net send</code></td>
+                <td>Deprecated after XP</td>
+              </tr>
+              <tr>
+                <td><code>net group</code></td>
+                <td>Only for domain controllers</td>
+              </tr>
+              <tr>
+                <td><code>net print</code></td>
+                <td>Obsolete printer management</td>
+              </tr>
+              <tr>
+                <td><code>net computer</code></td>
+                <td>Deprecated, no help available</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>SHUTDOWN – POWER CONTROL</h2>
+
+        <h3>Shutdown the local machine</h3>
+        Shuts down the current computer.
+        <pre><code>shutdown /s</code></pre>
+
+        <h3>Restart the local machine</h3>
+        Restarts the current computer after shutdown.
+        <pre><code>shutdown /r</code></pre>
+
+        <h3>Log off the current user</h3>
+        Logs out the current user session.
+        <pre><code>shutdown /l</code></pre>
+
+        <h3>Force close running apps</h3>
+        Forces running applications to close without warning.
+        <pre><code>shutdown /f</code></pre>
+
+        <h3>Abort a shutdown (if already initiated)</h3>
+        Cancels a pending shutdown or restart.
+        <pre><code>shutdown /a</code></pre>
+
+        <h3>Shutdown a remote computer</h3>
+        Performs a shutdown on a remote machine.
+        <pre><code>shutdown /m \\PC-NAME /s /f</code></pre>
+
+        <h3>Restart a remote machine</h3>
+        Forces restart on a remote PC.
+        <pre><code>shutdown /m \\PC-NAME /r /f</code></pre>
+
+        <h3>Set a shutdown timer</h3>
+        Schedules shutdown after specific seconds (e.g. 60s).
+        <pre><code>shutdown /s /t 60</code></pre>
+
+        <h3>Show a shutdown message</h3>
+        Displays a custom message on shutdown prompt (max 512 chars).
+        <pre><code>shutdown /s /t 30 /c "System maintenance in progress."</code></pre>
+
+        <h3>Full forced reboot with warning and delay</h3>
+        Reboots after 2 minutes, kills all apps, and shows a message.
+        <pre><code>shutdown /r /f /t 120 /c "System rebooting for updates."</code></pre>
+
+        <h3>Help menu</h3>
+        Displays full list of shutdown options.
+        <pre><code>shutdown /?</code></pre>
+      </div>
+
+      <div class="section">
+        <h2>WMIC – SYSTEM INVENTORY</h2>
+
+        <h3>1. 📦 SYSTEM INFORMATION Get OS version, build, and name</h3>
+        <pre><code>wmic os get Caption, Version, BuildNumber</code></pre>
+
+        Get manufacturer and model of the PC
+        <pre><code>wmic computersystem get Manufacturer, Model</code></pre>
+
+        Get BIOS serial number
+        <pre><code>wmic bios get SerialNumber</code></pre>
+
+        Get CPU info
+        <pre><code>wmic cpu get Name, NumberOfCores, MaxClockSpeed</code></pre>
+
+        Get RAM chip capacity and speed
+        <pre><code>wmic memorychip get Capacity, Speed</code></pre>
+
+        <h3>
+          2. 👤 USER ACCOUNT ENUMERATION List all local users with SID and
+          status
+        </h3>
+        <pre><code>wmic useraccount get Name, SID, Disabled, Lockout</code></pre>
+
+        Check if Administrator is locked
+        <pre><code>wmic useraccount where "Name='Administrator'" get Lockout</code></pre>
+
+        <h3>
+          3. 🧨 PROCESS CONTROL List running processes (cleaner than tasklist)
+        </h3>
+        <pre><code>wmic process list brief</code></pre>
+
+        Kill all instances of a process
+        <pre><code>wmic process where "Name='notepad.exe'" call terminate</code></pre>
+
+        Get process ID and full path of an app
+        <pre><code>wmic process where "Name='chrome.exe'" get ProcessId, ExecutablePath</code></pre>
+
+        <h3>4. 🛠️ INSTALLED SOFTWARE List installed programs with version</h3>
+        <pre><code>wmic product get Name, Version</code></pre>
+
+        Search for a specific app
+        <pre><code>wmic product where "Name like '%Visual Studio%'" get Name, Version</code></pre>
+        (Note: This is slow. Use PowerShell for faster queries in modern
+        systems.)
+        <h3>5. 🌐 NETWORK INFO Get IP address and MAC of all adapters</h3>
+        <pre><code>wmic nicconfig get Description, MACAddress, IPAddress</code></pre>
+
+        List only enabled (active) NICs
+        <pre><code>wmic nic where "NetEnabled='true'" get Name, MACAddress</code></pre>
+
+        <h3>6. 🚀 STARTUP PROGRAMS List programs that run at startup</h3>
+        <pre><code>wmic startup get Caption, Command</code></pre>
+
+        <h3>7. ⚙️ WINDOWS SERVICES Show all services</h3>
+        <pre><code>wmic service list brief</code></pre>
+
+        Start or stop a specific service
+        <pre><code>wmic service where "Name='Spooler'" call startservice</code></pre>
+        <pre><code>wmic service where "Name='Spooler'" call stopservice</code></pre>
+
+        <h3>8. 🕒 SYSTEM BOOT TIME View last boot time</h3>
+        <pre><code>wmic os get LastBootUpTime</code></pre>
+        (Format: YYYYMMDDhhmmss...) 9. 🧾 EXPORTING TO FILE Save process list as
+        HTML
+        <pre><code>wmic process list full /format:htable > processes.html</code></pre>
+
+        Save user list as text
+        <pre><code>wmic useraccount get Name, SID > users.txt</code></pre>
+
+        <h3>
+          10. 🎯 REMOTE SYSTEM ENUM (Admin Access Needed) Run command on remote
+          machine
+        </h3>
+        <pre><code>wmic /node:"192.168.1.10" /user:"admin" /password:"pass123" process list brief</code></pre>
+      </div>
+      <div class="section">
+        <h2>DIRECTORY PERMISSION EXPLOITATION</h2>
+        <h3>icacls</h3>
+        <pre>
+          Note:
+              Sids may be in either numerical or friendly name form. If a numerical
+              form is given, affix a * to the start of the SID.
+
+              /T indicates that this operation is performed on all matching
+                 files/directories below the directories specified in the name.
+
+              /C indicates that this operation will continue on all file errors.
+                 Error messages will still be displayed.
+
+              /L indicates that this operation is performed on a symbolic link
+                 itself versus its target.
+
+              /Q indicates that icacls should suppress success messages.
+
+                          N  - no access
+                          F  - full access
+                          M  - modify access
+                          RX - read and execute access
+                          R  - read-only access
+                          W  - write-only access
+                          D  - delete access
+
+          icacls                 Folder and file Permission tool
+          icacls [path]          Check Permissions of a folder/file
+          icacls [path] /[SID] User /t /c
+                                 All files target user [you] has access to
+
+          icacls [path] /grant Host\User:[Rights]
+                                 Add Rights, use /grant:r to replace existing ones and :g for granted ones
+
+          icacls [path] /setowner User
+                                 Make yourself supreme owner of target destination
+
+          --- If u r blocked by the firewall use this command to grant access:
+          takeown /f [path]      Instantly take ownership and access
+
+          icacls [path] /deny Everyone:F
+                                 Deny Full Access [F] to all
+
+          icacls [path] /remove User
+                                 Use /remove:g to remove granted perms and
+                                 normal /remove to wipe all access for the user.
+
+          --- To Hide your changes so you don't get tracked, do this before:
+          icacls [path] /save perms.txt /t
+
+          --- To restore the saved permissions:
+          icacls [path] /restore perms.txt /t
+
+          --- Factory reset permissions:
+          icacls [path] /reset /t
+
+          --- For Attacks mainly look for:
+          INPUT:
+          icacls C:\ /t /c | findstr /i "Everyone BUILTIN\Users"
+
+          OUTPUT:
+          Everyone: (F)
+          BUILTIN\Users:(M)
+
+          --- It means non-admin users can escalate permissions and do any stuff
+<h4>whoami</h4>
+whoami
+Get [Host\User]
+
+whoami /user
+Get User_Name and SID : Is same as wmic useraccount get name,SID
+
+whoami /priv
+Get to know priveleges for current user
+
+whoami /logonid
+Get the logon SID for the session
+      </pre
+        >
+
+        <h3>Reading a SID</h3>
+        <pre>
+User Name                    SID
+===================== ==============================================
+honor-magicbook\archa    S-1-5-21-1459315111-1280694585-1677732344-1001
+
+S
+--- SID Identifier
+1
+--- Revision Number
+5
+--- Authority Issuing SID
+21
+--- Indicates SID is for a domain
+1459315111-1280694585-1677732344
+--- Domain Identifiers
+1001
+--- RID for a user or group
+    </pre
+        >
+      </div>
+
+      <footer>
+        <p>© 2025 Command Sheet. All rights reserved to Pushkar Parate.</p>
+      </footer>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

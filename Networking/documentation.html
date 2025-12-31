@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta
+      name="description"
+      content="Networking concepts, topologies, devices, transmission media and modes - compact documentation for learning and reference."
+    />
+    <meta
+      name="keywords"
+      content="networking, computer, programming, network, devices"
+    />
+    <meta http-equiv="refresh" content="60";
+    https://www.github.com/pushkar-parate/ />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Networking Documentation</title>
+  </head>
+  <body>
+    <header>
+      <!-- Sidebar -->
+      <nav id="sidebar" aria-label="Page contents">
+        <h2>Contents</h2>
+        <ul id="nav-list">
+          <!-- TOC will be generated dynamically by JS -->
+        </ul>
+      </nav>
+    </header>
+
+    <main id="content" tabindex="0">
+      <div class="hero">
+        <h1>NETWORKING DOCUMENTATION</h1>
+        <p>
+          Created by Pushkar Parate using Adarsh Tomar's Course <br />
+          View my
+          <a
+            href="https://www.github.com/pushkar-parate"
+            style="font-weight: 700"
+            >Github</a
+          >
+        </p>
+        <p>
+          <em>
+            Get Cisco Packet Tracer for visualizing network connections and
+            hardware.
+          </em>
+        </p>
+      </div>
+
+      <!-- Network Types -->
+      <section id="network-types-section">
+        <h2 id="network-types">Network Types</h2>
+
+        <article id="pan" class="info-block">
+          <h3 id="personal-area-network-pan">Personal Area Network [PAN]</h3>
+          <p>
+            The network of devices we use in our homes. All are connected to a
+            router which provides similar private IPv4 addresses like
+            192.168.31.29, 192.168.250 and so on till 255.
+          </p>
+        </article>
+
+        <article id="lan" class="info-block">
+          <h3 id="local-area-network-lan">Local Area Network [LAN]</h3>
+          <p>
+            Collection of PANs makes up a LAN network. Usually in a building of
+            office. A wireless connection will make it a W-LAN. W for Wireless.
+          </p>
+        </article>
+
+        <article id="can" class="info-block">
+          <h3 id="campus-area-network-can">Campus Area Network [CAN]</h3>
+          <p>
+            Collection of LANs makes up a CAN network. Usually in schools and
+            organizations where 2-3 buildings of the campus are connected.
+          </p>
+        </article>
+
+        <article id="man" class="info-block">
+          <h3 id="metropolitan-area-network-man">
+            Metropolitan Area Network [MAN]
+          </h3>
+          <p>
+            Collections of CANs is a MAN network. It is set up by ISPs of a city
+            to connect them and configure together. It has range of a
+            metro-city.
+          </p>
+        </article>
+
+        <article id="wan" class="info-block">
+          <h3 id="wide-area-network-wan">Wide Area Network [WAN]</h3>
+          <p>
+            Literally the World. What we say the Internet is the WAN network.
+          </p>
+        </article>
+
+        <h3 id="private-networks">Some more Private Networks</h3>
+        <br />
+
+        <article id="san" class="info-block">
+          <h4 id="storage-area-network-san">Storage Area Network [SAN]</h4>
+          <p>
+            When a storage pool is connected to a network it's a SAN network. It
+            stores the data of the nodes or nodes can receive. It's like the
+            cloud storage.
+          </p>
+        </article>
+
+        <article id="epn" class="info-block">
+          <h4 id="enterprise-private-network-epn">
+            Enterprise Private Network [EPN]
+          </h4>
+          <p>
+            A configured network by an Admin over the Enterprise. Only employee
+            devices can be connected and access this network.
+          </p>
+        </article>
+
+        <article id="vpn" class="info-block">
+          <h4 id="virtual-private-network-vpn">
+            Virtual Private Network [VPN]
+          </h4>
+          <p>
+            When two networks are connected, hackers can spoof them or admin can
+            view their data. For privacy a tunneled network can be created by
+            VPN services.
+          </p>
+        </article>
+        <article id="subnet-vlan" class="info-block">
+          <h4>Subnet / Virtual LAN [VLAN]</h4>
+          <br />
+          <iframe
+            src="https://www.youtube.com/embed/6_giEv20En0"
+            title="Subnets vs VLANs"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <br />
+        </article>
+      </section>
+
+      <!-- Network Architectures -->
+      <section id="network-architectures-section">
+        <h2 id="network-architectures">NETWORK ARCHITECTURES</h2>
+
+        <article id="p2p" class="info-block">
+          <h3 id="p2p-peer-to-peer">P2P [Peer-to-Peer]</h3>
+          <p>
+            It is a model where two devices are connected to each other without
+            any SERVER which controls the transmission of data and sets
+            protocols. Thus, two nodes are directly connected.
+          </p>
+        </article>
+
+        <article id="client-server" class="info-block">
+          <h3 id="client-server-architecture">Client-Server Architecture</h3>
+          <p>
+            In this model, devices are connected to a central controlling
+            device, SERVER, which controls the data transmission protocols.
+          </p>
+        </article>
+      </section>
+
+      <!-- Network Topologies -->
+      <section id="network-topologies-section">
+        <h2 id="network-topologies">Network Topologies</h2>
+
+        <article id="bus-topology" class="info-block">
+          <h3 id="bus--line-topology">Bus / Line Topology</h3>
+          <img src="./Images/bus-topology.png" alt="Bus Topology" />
+          <p>
+            A cable is passed on which the sides of cables are connected to
+            nodes. Uses Broadcast Method.
+          </p>
+        </article>
+
+        <article id="star-topology" class="info-block">
+          <h3 id="star-topology">Star Topology</h3>
+          <img src="./Images/star-topology.png" alt="Star Topology" />
+          <p>
+            A central device is placed where the nodes are connected. Uses
+            Broadcast Method.
+          </p>
+        </article>
+
+        <article id="ring-topology" class="info-block">
+          <h3 id="ring-topology">Ring Topology</h3>
+          <img src="./Images/ring-topology.png" alt="Ring Topology" />
+          <p>
+            All nodes are in circle, for transmission, data passes through each
+            in rotation. Uses Broadcast Method.
+          </p>
+        </article>
+
+        <article id="tree-topology" class="info-block">
+          <h3 id="tree-topology">Tree Topology</h3>
+          <img src="./Images/tree-topology.png" alt="Tree Topology" />
+          <p>Hierarchically the nodes are set up.</p>
+        </article>
+
+        <article id="mesh-topology" class="info-block">
+          <h3 id="mesh-topology">Mesh Topology</h3>
+          <img src="./Images/mesh-topology.png" alt="Mesh Topology" />
+          <p>
+            Each node connects to each one. Its fastest but most expensive. Uses
+            Unicast method.
+          </p>
+        </article>
+
+        <article id="hybrid-topology" class="info-block">
+          <h3 id="hybrid-topology">Hybrid Topology</h3>
+          <p>A mix of topologies is a Hybrid one.</p>
+        </article>
+      </section>
+
+      <!-- Networking Devices -->
+      <section id="network-devices-section">
+        <h2 id="networking-devices">Networking Devices</h2>
+
+        <article id="nic" class="info-block">
+          <h3 id="network-interface-card-nic">Network Interface Card [NIC]</h3>
+          <img src="./Images/mac.png" alt="Reading MAC PNG" srcset="" />
+          <p>
+            It is the card which provides interface for network connection to
+            devices. Installed in Motherboard. Contains the MAC and ARP resolver
+            cache. Can be wired or wireless. RJ-45 is most common Ethernet Cable
+            and port in NIC. <br />
+            <br />
+            MAC is a alphanumeric unique address assigned to each NIC by the
+            manufacturer. ARP cache resolves IP to MAC address mapping.
+          </p>
+        </article>
+
+        <article id="hub" class="info-block">
+          <h3 id="hub">Hub</h3>
+          <p>
+            Broadcast connection device. One input port and 8 or more output
+            ports. Does not filter data and cannot be configured. Sends packets
+            to all devices, so not secure but cheaper.
+          </p>
+        </article>
+
+        <article id="switches" class="info-block">
+          <h3 id="switches">Switches</h3>
+          <p>
+            Intelligent, configurable, expensive version of a hub. Multiple
+            ports from 8 to 64.
+          </p>
+        </article>
+
+        <article id="repeater" class="info-block">
+          <h3 id="repeater">Repeater</h3>
+          <p>Strengthens signals over long distances.</p>
+        </article>
+
+        <article id="access-points" class="info-block">
+          <h3 id="access-points">Access Points</h3>
+          <p>
+            Has input/output ports and provides wireless connectivity. Built
+            into routers for sharing internet by ISP.
+          </p>
+        </article>
+
+        <article id="router" class="info-block">
+          <h3 id="router">Router</h3>
+          <p>
+            Wired device for routing data packets over large networks. Assigns
+            private IPv4 addresses and converts to public IPs. Modern routers
+            have Access Points and Switches integrated.
+          </p>
+        </article>
+
+        <article id="dhcp-server" class="info-block">
+          <h3 id="dhcp-server">DHCP Server</h3>
+          <p>
+            Dynamic Host Configuration Protocal [DHCP] servers are a replacement
+            to the old time BOOTP. It uses Port UDP 67 same as BOOTP. It
+            automatically assigns private IP addresses to devices in a LAN.
+            <br />
+            It provides the IP addresses dynamically on lease. But a Reservation
+            of IP can be made by configuring the DHCP server.
+          </p>
+          <h4 id="DORA">DORA Functionality</h4>
+          <img src="./Images/dora.png" alt="DORA DHCP PNG" srcset="" />
+          <p>
+            It is a set of functions when a device wants to connect to a DHCP
+            server for a IP lease.
+          </p>
+          <h4 id="apipa">APIPA</h4>
+          <p>
+            Automatic Private IP Addressing [APIPA] is a feature in Windows OS
+            where if DHCP server is not found, it assigns a private IP and
+            Subnet Mask. <br />
+            It is a static and manual form where the Windows provides the IP
+            lease. <br /><br />
+            The IP range assigned is from 169.254.0.1 to 169.254.255.255 and A
+            Subnet Mask of 255.255.0.0 / 16.
+          </p>
+        </article>
+
+        <article id="dns-server" class="info-block">
+          <h3 id="dns-server">DNS Server (Domain Name System)</h3>
+          <p>
+            It translates web addresses to IP cause thats what computer want to
+            connect to Servers.
+            <br />
+            A DNS server has a database of web addresses and their corresponding
+            IP addresses. It is its only work. We can use it using the
+            <code>nslookup</code> command to chek=ck your DNS server.
+          </p>
+        </article>
+
+        <article id="dafault-gateway" class="info-block">
+          <h3 id="default-gateway">Default GateWay</h3>
+          <p>
+            It is the IP address of the Router in a LAN network through which
+            data packets are sent to other networks. <br /><br />
+            It is the device which connects your LAN to other networks and is
+            'Default' because it is the first option looked upon when exiting.
+          </p>
+        </article>
+      </section>
+
+      <!-- Transmission Modes -->
+      <section id="transmission-modes-section">
+        <h2 id="transmission-modes">Transmission Modes</h2>
+
+        <article id="simplex" class="info-block">
+          <h3 id="simplex-mode">Simplex Mode</h3>
+          <p>
+            One node can only send and other can only receive through the
+            channel. Example: monitor output.
+          </p>
+        </article>
+
+        <article id="half-duplex" class="info-block">
+          <h3 id="half-duplex-mode">Half-Duplex Mode</h3>
+          <p>
+            Both nodes can send and receive but in turns. Example:
+            walkie-talkie.
+          </p>
+        </article>
+
+        <article id="full-duplex" class="info-block">
+          <h3 id="full-duplex-mode">Full Duplex Mode</h3>
+          <p>Sending and receiving is simultaneous. Example: phone calls.</p>
+        </article>
+      </section>
+
+      <!-- Digital Transmission -->
+      <section id="digital-transmission-section">
+        <h2 id="digital-transmission">Digital Transmission</h2>
+        <p>
+          When data travels along wires it is in ANALOG FORM. After processing
+          in computer, it becomes DIGITAL FORM (01010101).
+        </p>
+
+        <article id="digital-to-digital" class="info-block">
+          <h3 id="digital-to-digital-conversion">
+            Digital-to-Digital Conversion
+          </h3>
+          <p>
+            Conversion of digital data to analog signals for transmission.
+            Types: Unipolar, Polar, Bipolar.
+          </p>
+        </article>
+
+        <article id="unipolar" class="info-block">
+          <h4 id="unipolar-nrz">UniPolar [NRZ]</h4>
+          <img src="./Images/unipolar-nrz.png" alt="Unipolar NRZ" />
+          <p>
+            1 → +V, 0 → 0V.
+            <strong>Concept:</strong>
+            Only one polarity is used. <br />
+            <strong>Pros:</strong>
+            Simple, Cheap. <br />
+            <strong>Cons:</strong>
+            DC component needed, Poor Sync. <br />
+            <strong>Example:</strong>
+            TTL circuits.
+          </p>
+        </article>
+
+        <article id="polar" class="info-block">
+          <h4 id="polar">Polar</h4>
+          <img src="./Images/polar.png" alt="Polar" />
+          <p>
+            Uses positive and negative voltages, thus has three levels: 1 0 -1.
+            Types: NRZ, RZ, Manchester. <br />
+            <strong>Pros:</strong>
+            Better Sync, No DC Component needed. <br />
+            <strong>Example:</strong>
+            Ethernet, USB.
+          </p>
+        </article>
+
+        <article id="bipolar" class="info-block">
+          <h4 id="bi-polar">BiPolar</h4>
+          <img src="./Images/bipolar.png" alt="Bipolar" />
+          <p>
+            Eliminates DC problem, maintains syncing. <br />
+            <strong>Types:</strong>
+            AMI, Pseudo-Ternary. <br />
+            <strong>Example:</strong>
+            T1/E1 lines.
+          </p>
+          <h5 id="bipolar-ami">BiPolar [AMI]</h5>
+          <p>
+            There are three levels: +, 0, -. But the 1 is represented
+            alternatively by + and - voltages. While 0 is by 0V.
+          </p>
+          <h5 id="bipolar-psuedoternary">BiPolar [PsuedoTernary]</h5>
+          <p>
+            It is the same as AMI but here 1 is treated 0 and 0 is treated as 1.
+          </p>
+        </article>
+
+        <article id="digital-summary" class="info-block">
+          <h3 id="overall-summary">Overall Summary</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Voltage Levels</th>
+                <th>Example</th>
+                <th>Synchronization</th>
+                <th>DC Component</th>
+                <th>Usage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Type">Unipolar</td>
+                <td data-label="Voltage Levels">0, +V</td>
+                <td data-label="Example">NRZ</td>
+                <td data-label="Synchronization">Poor</td>
+                <td data-label="DC Component">High</td>
+                <td data-label="Usage">Simple digital circuits</td>
+              </tr>
+              <tr>
+                <td data-label="Type">Polar</td>
+                <td data-label="Voltage Levels">–V, +V</td>
+                <td data-label="Example">NRZ, RZ, Manchester</td>
+                <td data-label="Synchronization">Good (esp. Manchester)</td>
+                <td data-label="DC Component">Low–None</td>
+                <td data-label="Usage">Ethernet, USB</td>
+              </tr>
+              <tr>
+                <td data-label="Type">Bipolar</td>
+                <td data-label="Voltage Levels">–V, 0, +V</td>
+                <td data-label="Example">AMI, Pseudo-ternary</td>
+                <td data-label="Synchronization">Good</td>
+                <td data-label="DC Component">None</td>
+                <td data-label="Usage">Telephone lines, older WANs</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+      </section>
+
+      <!-- Transmission Media -->
+      <section id="transmission-media-section">
+        <h2 id="transmission-media">Transmission Media</h2>
+
+        <article id="common-terms" class="info-block">
+          <h3 id="common-terms">Common Terms</h3>
+          <h4 id="bandwidth">Bandwidth</h4>
+          <p>Higher bandwidth → higher transmission rate.</p>
+          <h4 id="interference">Interference</h4>
+          <p>Disturbance by unwanted electromagnetic signals.</p>
+          <h4 id="transmission-impairment">Transmission Impairment</h4>
+          <p>
+            When received signals differ from original due to attenuation,
+            distortion, or noise.
+          </p>
+          <h5 id="attenuation">Attenuation</h5>
+          <p>Loss of signal strength over distance.</p>
+          <h5 id="distortion">Distortion</h5>
+          <p>Loss of data due to frequency differences.</p>
+          <h5 id="noise-interference">Noise Interference</h5>
+          <p>Addition of unwanted signals.</p>
+        </article>
+
+        <article id="guided-media" class="info-block">
+          <h3 id="guided--wired-media">Guided / Wired Media</h3>
+          <p>Physical cables for data transmission (Bounded Media).</p>
+          <h4 id="twisted-pair-cable">Twisted-Pair Cable</h4>
+          <p>Most used in telecommunication and Ethernet. Types: STP, UTP.</p>
+          <h5 id="rj-connectors">RJ Connectors</h5>
+          <p>Family of connectors for telephone and Ethernet wiring.</p>
+          <h4 id="coaxial-cable">Coaxial Cable</h4>
+          <img src="./Images/coaxial.png" alt="Coaxial Cable PNG" srcset="" />
+          <p>
+            Used for data, video, voice. Expensive, multiple layers to reduce
+            interference.
+          </p>
+          <h5 id="bnc-connectors">BNC Connectors</h5>
+          <p>Most common connector for coaxial cable.</p>
+          <h4 id="optic-fiber-cable">Optic Fiber Cable</h4>
+          <img src="./Images/fiber-optic.png" alt="Fiber Optic PNG" srcset="" />
+          <p>
+            Glass strands transmit light pulses. High speed, long distance. Used
+            in global Internet backbone.
+          </p>
+        </article>
+
+        <article id="wireless-media" class="info-block">
+          <h3 id="unguided-wireless-media">Unguided / Wireless Media</h3>
+          <p>Also called Air Media. Uses electromagnetic waves.</p>
+          <h4 id="radio-waves">Radio Waves</h4>
+          <p>
+            Low frequency, penetrate walls. Used in radio, walkie-talkies. 20kHz
+            – 300Hz
+          </p>
+          <h4 id="microwaves">Microwaves</h4>
+          <p>
+            Straight line travel. Used for cellular, Wi-Fi, 3G/4G/5G. 1GHz –
+            1000GHz
+          </p>
+          <h4 id="infrared-waves">Infrared Waves</h4>
+          <p>
+            High frequency, blocked by objects. Used in remote controls, night
+            vision, motion detection. 300GHz – 400THz
+          </p>
+        </article>
+      </section>
+
+      <!-- IPv4 Addressing -->
+      <section id="ipv4-addressing-section">
+        <h2 id="ipv4-addressing">IPv4 Addressing</h2>
+        <p>
+          It has 4 8-Bit Octets forming a 32 bit Unique Address assigned in a
+          Network. In each octet numbers range from 0-255. <br />
+          This was introduced by IANA [Internet Assigned Numebers Authority] and
+          is also managed by them.
+        </p>
+
+        <article id="reading-ipv4" class="info-block">
+          <h3 id="reading-ip">Reading IPv4 Address</h3>
+
+          <h4 id="network-part">Network Part</h4>
+          <p>
+            It is the part of the IP which does not change in a network and
+            identifies the network of computer. <br />
+            <code><strong>192.168.32</strong>.225</code>
+          </p>
+
+          <h4 id="host-part">Host Part</h4>
+          <p>
+            It is the part which identifies the device in the network and two
+            devices in a network have different Host parts but same Network
+            Part.
+            <br />It may vary and can be known using Subnet Masks. <br />
+            <code>192.168.32.<strong>225</strong></code>
+          </p>
+
+          <h4 id="subnet-masks">Subnet Masks</h4>
+          <p>
+            It is what tells that which is Host Part and which is Network Part.
+            It can be also used to determine size of a network.
+            <br />
+            <br />
+            <code
+              ><strong>255.255.255.0</strong> Usually for Private or Local Area
+              Networks</code
+            >
+            <code
+              ><strong>255.255.0.0</strong> Usually for Bigger networks like
+              MAN</code
+            >
+            <br />
+            <br />
+            The 0 part will be Host Part in the IP Address. And 255 will be the
+            Network Part in IP Address.
+          </p>
+        </article>
+
+        <article id="ip-classes" class="info-block">
+          <h3 id="ip-class">IP Classes</h3>
+          <p>
+            <img src="./Images/ip-classes.png" alt="IP-Class PNG" srcset="" />
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Class</th>
+                <th>Starting Bits</th>
+                <th>IP Range</th>
+                <th>Default Subnet Mask</th>
+                <th># of Networks</th>
+                <th># of Hosts per Network</th>
+                <th>Typical Use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Class">A</td>
+                <td data-label="Starting Bits">0</td>
+                <td data-label="IP Range">1.0.0.0 – 126.255.255.255</td>
+                <td data-label="Default Subnet Mask">255.0.0.0</td>
+                <td data-label="# of Networks">128</td>
+                <td data-label="# of Hosts per Network">16,777,214</td>
+                <td data-label="Typical Use">
+                  Very large networks (big corps, ISPs)
+                </td>
+              </tr>
+              <tr>
+                <td data-label="Class">B</td>
+                <td data-label="Starting Bits">10</td>
+                <td data-label="IP Range">128.0.0.0 – 191.255.255.255</td>
+                <td data-label="Default Subnet Mask">255.255.0.0</td>
+                <td data-label="# of Networks">16,384</td>
+                <td data-label="# of Hosts per Network">65,534</td>
+                <td data-label="Typical Use">
+                  Medium-sized networks (universities, midsize companies)
+                </td>
+              </tr>
+              <tr>
+                <td data-label="Class">C</td>
+                <td data-label="Starting Bits">110</td>
+                <td data-label="IP Range">192.0.0.0 – 223.255.255.255</td>
+                <td data-label="Default Subnet Mask">255.255.255.0</td>
+                <td data-label="# of Networks">2,097,152</td>
+                <td data-label="# of Hosts per Network">254</td>
+                <td data-label="Typical Use">
+                  Small networks (typical home/small business LANs)
+                </td>
+              </tr>
+              <tr>
+                <td data-label="Class">D</td>
+                <td data-label="Starting Bits">1110</td>
+                <td data-label="IP Range">224.0.0.0 – 239.255.255.255</td>
+                <td data-label="Default Subnet Mask">N/A</td>
+                <td data-label="# of Networks">N/A</td>
+                <td data-label="# of Hosts per Network">N/A</td>
+                <td data-label="Typical Use">
+                  Multicasting (one-to-many comms)
+                </td>
+              </tr>
+              <tr>
+                <td data-label="Class">E</td>
+                <td data-label="Starting Bits">1111</td>
+                <td data-label="IP Range">240.0.0.0 – 255.255.255.255</td>
+                <td data-label="Default Subnet Mask">N/A</td>
+                <td data-label="# of Networks">N/A</td>
+                <td data-label="# of Hosts per Network">N/A</td>
+                <td data-label="Typical Use">
+                  Experimental, reserved for research
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p>127.0.0.0 to 127.255.255.255 is a range of Loop-Back IP's.</p>
+
+          <h4 id="class-a">Class A IP</h4>
+          <p>
+            These are like WAN having significant
+            <strong>Range:</strong> 1.0.0.0 to 126.255.255.255.
+            <strong>Default Subnet Mask:</strong> 255.0.0.0. <br />
+            <br />
+            <strong>Number of Networks:</strong> 126, Number of Host 16 Million
+            + <br />
+            <strong>Used by:</strong> Very large organizations, ISPs, or
+            backbone providers.
+          </p>
+          <h4 id="class-b">Class B IP</h4>
+          <p>
+            These are like MAN having lesser
+            <strong>Range:</strong> 128.0.0.0 to 191.255.255.255.
+            <strong>Default Subnet Mask:</strong> 255.255.0.0. <br /><br />
+            <strong>Number of Networks:</strong> 16,384
+            <strong>Hosts:</strong> 65,000+ <br />
+            <strong>Used by:</strong> ISPs, government agencies like NASA or
+            ISRO.
+          </p>
+
+          <h4 id="class-c">Class C IP</h4>
+          <p>
+            These are your common LAN or PAN with low
+            <strong>Range:</strong> 192.0.0.0 to 223.255.255.255.
+            <strong>Default Subnet Mask:</strong> 255.255.255.0. <br /><br />
+            <strong>Number of Networks:</strong> Over 2 million
+            <strong>Hosts:</strong> 254 <br />
+            <strong>Used by:</strong> Small organizations and local networks.
+          </p>
+
+          <h4 id="class-d">Class D IP</h4>
+          <p>
+            <strong>Range:</strong> 224.0.0.0 to 239.255.255.255. <br /><br />
+            These are <strong>Reserved Multicasting IP Addresses</strong> used
+            by service providers or broadcasters. It does not require a subnet
+            mask since multicasting doesn’t rely on host-specific communication
+            — the data is broadcast to multiple recipients simultaneously.
+          </p>
+
+          <h4 id="class-e">Class E IP</h4>
+          <p>
+            <strong>Range:</strong> 240.0.0.0 to 255.255.255.254. <br /><br />
+            These do not need a subnet mask and are
+            <strong>Reserved for Research and Development</strong> purposes by
+            IANA.
+          </p>
+
+          <h4 id="loopback-ip">Loopback IP</h4>
+          <p>
+            <strong>Range:</strong> 127.0.0.0 to 127.255.255.255. <br /><br />
+            These IPs are used for communication within your own machine.
+          </p>
+
+          <h5 id="loopback-uses">Practical Uses</h5>
+          <ul>
+            <li>
+              <strong>Local testing —</strong> Run a local web server (e.g.,
+              <code>localhost:3000</code>) to test code without putting it on
+              the internet.
+            </li>
+            <li>
+              <strong>Networking checks —</strong> Pinging
+              <code>127.0.0.1</code> confirms your TCP/IP stack is working.
+            </li>
+            <li>
+              <strong>Internal communication —</strong> Apps communicate on the
+              same machine without external traffic.
+            </li>
+            <li>
+              <strong>Security isolation —</strong> Services can bind only to
+              <code>127.0.0.1</code> to ensure they aren’t publicly accessible.
+            </li>
+          </ul>
+          <p>
+            These addresses are not meant for networking but are used to
+            maintain internal security and testing on your own system.
+          </p>
+
+          <h4 id="limited-broadcast">Limited Broadcast Address</h4>
+          <p>
+            <strong>Address:</strong> 255.255.255.255 <br /><br />
+            This is a
+            <strong>Reserved IP Address for Limited Broadcast</strong> — it
+            refers to "everyone" on the local network. It’s used to broadcast
+            messages to all hosts on a LAN. It is not a subnet mask or a valid
+            assignable IPv4 address.
+          </p>
+
+          <h5 id="limited-broadcast-uses">Common Uses</h5>
+          <ul>
+            <li>
+              <strong>DHCP Discover —</strong> When a device joins a network
+              without an IP, it sends a broadcast to
+              <code>255.255.255.255</code> asking for a DHCP server.
+            </li>
+            <li>
+              <strong>Wake-on-LAN / Network discovery —</strong> Used for tools
+              that need to reach all hosts locally.
+            </li>
+            <li>
+              <strong>Diagnostics —</strong> Network troubleshooting and
+              broadcast testing.
+            </li>
+          </ul>
+          <br />
+
+          <h4 id="apipa-class">APIPA (Automatic Private IP Addressing)</h4>
+          <p>
+            <strong>Range:</strong> 169.254.0.1 to 169.254.255.255 <br />
+            <strong>Subnet Mask:</strong> 255.255.0.0 (/16) <br /><br />
+            When a computer fails to contact a DHCP server, it automatically
+            assigns itself an IP in this range using APIPA. This allows limited
+            local communication without internet connectivity.
+          </p>
+        </article>
+
+        <article id="ip-to-binary" class="info-block">
+          <h3 id="ip-conversion">IP to Binary</h3>
+          <img
+            src="./Images/ip-to-binary.png"
+            alt="IP to Binary PNG"
+            srcset=""
+          />
+          <br />
+          <iframe
+            src="https://www.youtube.com/embed/EDAnsWpOjGM"
+            title="Binary Explained IPv4 | Cisco CCNA 200-301"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <br />
+        </article>
+      </section>
+
+      <section id="ipv6-addressing">
+        <h2 id="ipv6">IPv6 Addressing</h2>
+        <p>
+          It is a 128 Bit Address and can produce more unique Addresses than
+          IPv4. Launched by IANA due to IPv4 Shortage. It is alphanumeric
+          address, for example, 2409:40e3:1b:668d:159d:2c0c:c221:fea6. <br />
+          It does not have Class Categorization.
+        </p>
+        <br />
+
+        <article id="ipv4-to-ipv6" class="info-block">
+          <h3 id="ipv4-conversion">IPv4 to IPv6</h3>
+          <img
+            src="./Images/hex-table.png"
+            alt="Binary to Hex Codes PNG"
+            srcset=""
+            style="padding-left: 350px"
+          />
+          <br />
+          <iframe
+            src="https://www.youtube.com/embed/6g0jz1bYIuE"
+            title="IPv4 to IPv6 Conversion | Cisco CCNA 200-301"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <br />
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        © 2025 Networking Documentation. All rights reserved to Pushkar Parate.
+      </p>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
