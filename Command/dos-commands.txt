@@ -1,0 +1,48 @@
+For more information on a specific command, type HELP command-name
+
+BREAK          Sets or clears extended CTRL+C checking.
+BCDEDIT        Sets properties in boot database to control boot loading.
+CACLS          Displays or modifies access control lists (ACLs) of files.
+CHCP           Displays or sets the active code page number.
+CHDIR          Displays the name of or changes the current directory.
+CHKNTFS        Displays or modifies the checking of disk at boot time.
+COMP           Compares the contents of two files or sets of files.
+COMPACT        Displays or alters the compression of files on NTFS partitions.
+CONVERT        Converts FAT volumes to NTFS.  You cannot convert the
+               current drive.
+DISKPART       Displays or configures Disk Partition properties.
+DOSKEY         Edits command lines, recalls Windows commands, and 
+               creates macros.
+DRIVERQUERY    Displays current device driver status and properties.
+FC             Compares two files or sets of files, and displays the 
+               differences between them.
+FIND           Searches for a text string in a file or files.
+FINDSTR        Searches for strings in files.
+FOR            Runs a specified command for each file in a set of files.
+FSUTIL         Displays or configures the file system properties.
+GPRESULT       Displays Group Policy information for machine or user.
+ICACLS         Display, modify, backup, or restore ACLs for files and 
+               directories.
+MKLINK         Creates Symbolic Links and Hard Links
+MODE           Configures a system device.
+OPENFILES      Displays files opened by remote users for a file share.
+POPD           Restores the previous value of the current directory saved by 
+               PUSHD.
+PUSHD          Saves the current directory then changes it.
+RECOVER        Recovers readable information from a bad or defective disk.
+ROBOCOPY       Advanced utility to copy files and directory trees.
+SC             Displays or configures services (background processes).
+SCHTASKS       Schedules commands and programs to run on a computer.
+SHIFT          Shifts the position of replaceable parameters in batch files.
+SORT           Sorts input.
+VERIFY         Tells Windows whether to verify that your files are written
+               correctly to a disk.
+XCOPY          Copies files and directory trees.
+WMIC           Displays WMI information inside interactive command shell.
+
+For more information on tools see the command-line reference in the online help.
+
+CURRENT:
+
+FOR
+DOSKEY

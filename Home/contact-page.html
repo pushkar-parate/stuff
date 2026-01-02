@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta
+      name="description"
+      content="Contact Pushkar Parate, the creator of webpage My Stuff.."
+    />
+    <meta
+      name="keywords"
+      content="information-technology, it, technology, studies, notes, computer-science, pushkar parate, stuff, freelance, web developer"
+    />
+    <link
+      rel="shortcut icon"
+      href="./Images/contacts.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../style.css">
+    <title>Contact Pushkar</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="../index.html"
+          ><div class="logo">My Stuff!</div></a
+        >
+
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#profile-section">About Me</a></li>
+          <li><a href="../index.html#notes-section">Notes</a></li>
+          <li>
+            <a href="./contact-page.html" aria-current="page" target="_parent">Contact</a>
+          </li>
+        </ul>
+
+        <div class="search-box">
+          <input type="text" name="search" placeholder="Search notes & tools..." />
+          <button>Search</button>
+        </div>
+
+        <button class="menu-toggle" aria-label="Open menu">☰</button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- POPUP OVERLAY -->
+      <div class="popup-overlay" id="popup">
+        <div class="popup-box">
+          <button class="popup-close" id="popupClose" aria-label="Close popup">
+            ✕
+          </button>
+
+          <h3>Under Process 🚧🏗️</h3>
+          <p>
+            This Project / Tool is currently under development. It will be there
+            after a few months ..!
+          </p>
+        </div>
+      </div>
+
+      <!-- CONTACT SECTION -->
+        <div class="contact-container fade-section">
+          <!-- LEFT: TEXT -->
+          <div class="contact-info">
+            <h2>Get in Touch</h2>
+            <p>
+              Have questions, suggestions about the page, or want to collaborate
+              for work? Feel free to reach out — I usually respond within 36-48
+              hours.
+            </p>
+
+            <p>
+              📧 <strong>Email:</strong><br />
+              shivramparate@gmail.com
+            </p>
+
+            <p>
+              <em>
+                I look forward to hearing from you and connecting for
+                <strong>Frontend Web-Development</strong> Freelance work at your
+                convenient rate!
+              </em>
+            </p>
+          </div>
+
+          <!-- RIGHT: FORM -->
+          <form
+            id="contact-form"
+            class="contact-form"
+          >
+            <input type="text" placeholder="Your Name" name="name" autocomplete="name" required />
+            <input type="email" placeholder="Your Email" name="email" autocomplete="email" required />
+            <textarea
+              placeholder="Your Message"
+              rows="5"
+              name="message"
+              autocorrect="on"
+              required
+            ></textarea>
+            <button type="submit">Send Message</button>
+            <p id="form-status" aria-label="Form status"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contacts">
+      <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+      <div class="social-links">
+        <ul class="nav-links">
+          <li>
+            <a href="https://github.com/pushkar-parate" target="_blank"
+              >GitHub</a
+            >
+          </li>
+          <li>
+            <a href="./contact-page.html" target="_parent">Contact Creator</a>
+          </li>
+          <li>
+            <a href="https://instagram.com/btw.pushkar.31" target="_blank"
+              >Instagram</a
+            >
+          </li>
+        </ul>
+        <p id="foot">Made with ❤️ for 🤓</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="../script.js"></script>
+    <script src="./email.js"></script>
+
+  </body>
+</html>

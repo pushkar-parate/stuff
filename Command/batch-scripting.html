@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Batch Scripting and basic Command Line for Absolute Begginers free of cost."
+    />
+    <meta
+      name="keywords"
+      content="batch, cmd, ms-dos, scripting, programming"
+    />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Batch Scripting Guide</title>
+  </head>
+
+  <body>
+    <!-- Fixed Sidebar -->
+    <nav id="sidebar" aria-label="Page contents">
+      <h2>Contents</h2>
+      <ul id="nav-list"></ul>
+    </nav>
+
+    <!-- Moved main wrapper here -->
+    <main>
+      <header>
+        <h1>BATCH SCRIPTING FOR NOOBS</h1>
+        <p>
+          <em
+            >Created by King Cobra using ©LogicOpsLabs Course and Github
+            Repository <br />
+            View my GitHub, https://www.github.com/pushpesssh/</em
+          >
+        </p>
+        <p>
+          <a href="https://github.com/logicopslab/BatchScripting/tree/main"
+            >Click here to access example codes and PPTX.</a
+          >
+        </p>
+      </header>
+
+      <div class="section">
+        <h2>BATCH [.bat] SCRIPT BASICS</h2>
+        <pre>
+        echo                                       Print something
+        echo.                                      Print a blank line
+        @echo off                                  Start scripts with this
+        pause                                      End scripts with this
+        cls                                        Clear the Screen
+        echo %var%                                 Print the variable
+        arp -a >> [file path]                      Append the results in file
+        start                                      start a file or application
+        rem                                        Comment
+        copy                                       Copy
+        del                                        Delete
+        title                                      Title of the Window
+        mkdir/rmdir                                Make or remove directories
+        setlocal EnableDelayedExpansion            Allows to use !var!
+        title                                      Set the title of the Window
+        exit                                       Just exit
+        goto label                                 Trigger commands in :label
+        :label                                     List Commands triggered when goto executes
+        set /p                                     Promtp user
+        if /i !var!                                Remove case-sensitivity
+
+         </pre
+        >
+      </div>
+
+      <div class="section">
+        <h2>STARTING FORMAT</h2>
+        <pre><code>
+        @echo off
+        setlocal EnableDelayedExpansion
+        title ...
+        color f
+        cls
+
+        _
+
+        :funcexit
+        echo.
+        set /p opt=Type 'YES' to exit command prompt:
+				if /i \"!opt:~0,1!\"==\"Y\" (
+				        exit
+				) else if /i \"!opt:~0,1!\" NEQ \"Y\" (
+				        exit /b
+				)
+  </code></pre>
+      </div>
+
+      <div class="section">
+        <h2>ALL COMMANDS</h2>
+        <p>
+          <a href="./command-sheet.html"
+            >Click here to access all Command List of Command-Prompt.</a
+          >
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>OPERATORS IN BATCH</h2>
+        <h3>1. Arithmetic Operators (used in <code>SET /A</code>)</h3>
+        <pre>
+        +     Addition                   set /a x=5+2
+        -     Subtraction                set /a x=5-2
+        *     Multiplication             set /a x=5*2
+        /     Division (int only)        set /a x=5/2 → 2
+        %     Modulo (remainder)         set /a x=5%%2 → 1
+        &     Bitwise AND                set /a x=5&3
+        |     Bitwise OR                 set /a x=5|2
+        ^     Bitwise XOR                set /a x=5^3
+        <<    Bitwise shift left         set /a x=1<<3 → 8
+        >>    Bitwise shift right        set /a x=8>>2 → 2
+        ~     Bitwise NOT                set /a x=~5
+        ()    Grouping                   set /a x=(5+3)*2
+</pre
+        >
+
+        <h3>2. Logical/Comparison Operators (used in <code>IF</code>)</h3>
+        <pre><code>
+        ==      Equal to                 if "%x%"=="test" ...
+        NEQ     Not equal to             if %x% NEQ 5 ...
+        LSS     Less than                if %x% LSS 5 ...
+        LEQ     Less or equal            if %x% LEQ 5 ...
+        GTR     Greater than             if %x% GTR 5 ...
+        GEQ     Greater or equal         if %x% GEQ 5 ...
+        NOT     Logical NOT              if NOT "%x%"=="test" ...
+        !var!   Delayed expansion        Used with setlocal enabledelayedexpansion
+</code></pre>
+
+        <p>Symbols can be used in place of Keywords</p>
+
+        <h3>3. Redirection Operators</h3>
+        <pre><code>
+        >       Redirect output (overwrite)             echo Hello > file.txt
+        >>      Redirect output (append)                echo Hello >> file.txt
+        <       Redirect input from file                sort < file.txt
+        2>      Redirect std. error messages/stderr     command 2> error.log
+        1>      Redirect std. output/stdout             command 1> out.log
+        2>&1    Merge stderr into stdout                command > all.log 2>&1
+        nul     Send output to null                     command > nul 2>&1
+</code></pre>
+
+        <h3>4. Control Characters / Flow Operators</h3>
+        <pre><code>
+        &     Command AND           echo A & echo B
+        &&    Conditional AND       dir && echo success
+        ||    Conditional OR        dir abc || echo failed
+        ()    Grouping              if exist file (echo yes)
+        ^     Escape character      echo 2^>nul
+        |     Pipe                  dir | find "log"
+</code></pre>
+
+        <h3>5. FOR Loop Variables</h3>
+        <pre><code>
+        %i      Command line only             for %i in (*) do echo %i
+        %%i     Batch scripts                 for %%i in (*) do echo %%i
+        %%~nxF  Name + extension of file      for %%F in (*) do echo %%~nxF
+</code></pre>
+
+        <h3>6. FOR Variable Modifiers</h3>
+        <pre><code>
+        %%~fA  Full path
+        %%~dA  Drive letter
+        %%~pA  Path only
+        %%~nA  Filename only
+        %%~xA  Extension only
+        %%~sA  Short 8.3 name
+        %%~aA  Attributes
+        %%~tA  Modified time
+        %%~zA  File size
+</code></pre>
+
+        <h3>7. Environment Variables</h3>
+        <pre><code>
+      %cd%        Current directory
+      %~dp0       Script directory
+      %random%    Random number
+      %errorlevel% Last exit code
+      %time%, %date% Time and date
+</code></pre>
+
+        <h3>8. Real-World Script Example</h3>
+        <pre><code>@echo off
+      setlocal enabledelayedexpansion
+
+      set /a x=5
+      for %%i in (1 2 3) do (
+        set /a x=!x!+%%i
+        echo !x!
+      )
+
+      if exist result.txt (
+        del result.txt && echo Deleted old result
+      ) || (
+        echo No file to delete
+      )
+
+      dir *.txt > list.txt 2> nul
+</code></pre>
+
+        <h3>9. Common Pitfalls</h3>
+        <pre><code>
+    - Using %var% inside () blocks without delayed expansion
+    - Forgetting %% for FOR in scripts
+    - Using == instead of EQU inside SET /A
+    - Not escaping ^, |, & inside echo
+</code></pre>
+
+        <h3>SETLOCAL: EnableDelayedExpansion</h3>
+        <p>
+          By default, variables inside parentheses are expanded only once at
+          parse time. Enabling delayed expansion allows you to use `!var!` to
+          get the current value during execution.
+        </p>
+
+        <h3>GOTO vs CALL</h3>
+        <div class="wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Command</th>
+                <th>Purpose</th>
+                <th>Behavior</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>goto :label</code></td>
+                <td><strong>Jumps to a label</strong></td>
+                <td>🚫 No return — like a hard jump</td>
+              </tr>
+              <tr>
+                <td><code>call :label</code></td>
+                <td><strong>Calls a label/function</strong></td>
+                <td>✅ Returns after <code>goto :eof</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>MANIPULATING OF STRINGS</h2>
+        <h3>1. Referencing Arguments of a<code>:function</code></h3>
+        <pre><code>
+        call :function "!var!" "!var1!"
+
+        :function
+        echo %1
+        echo %~2
+      </code></pre>
+        <p>
+          The above code echo the var and var1. Both are 1st and 2nd Argument of
+          :function. <br />
+        </p>
+        <p>They can be reffered to as <code>%1 and %2</code></p>
+        <pre><code>%~2</code> is used to remove quotes in output</pre>
+        <h3>Changing Values</h3>
+        <pre><code>
+        set str=HelloHell
+        echo str
+        set str=!str:~0,5!
+        echo str
+      </code></pre>
+        <p>
+          The above code makes the String "HelloHell" to "Hello". ~0,5 means
+          from 0 to 5
+        </p>
+        <p>This is called Left String</p>
+        <pre><code>
+        set str=!str:~-4!
+      </code></pre>
+        <p>
+          ~-4 means Right string aka Value from Backwards. It gives Hell as
+          Result
+        </p>
+        <br />
+        <p>Now, The mid-string</p>
+        <pre><code>
+        set str=!str:~4,6!
+        echo str
+      </code></pre>
+        <p>
+          This means Starting from 4 and taking upto 6. Indexing starts from 0
+          in all languages.
+        </p>
+        <p>Result will be : loh, from 4th character to the 6th character.</p>
+        <h3>Removing Spaces from a string</h3>
+        <pre><code>
+        set /p str=Enter a string:
+      </code></pre>
+        <p>User might enter spaces. so we must remove through this:</p>
+        <pre><code>
+        set str=!str: =!
+      </code></pre>
+        <p>
+          This command says " " = Nothing, as it end there.
+          <br />
+          It can also be utilized to remove some part of the string to get some
+          wanted part.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>ARRAYS AND LOOPING</h2>
+
+        <h3>Defining Arrays</h3>
+        <p>
+          We ain't got any defined ARRAYSs in BATCH. But we can simulate them
+          using variables. For example,
+        </p>
+        <pre><code>
+        set item[0]=apple
+        set item[1]=banana
+        set item[2]=cherry
+  </code></pre>
+
+        <h3>Looping through Arrays</h3>
+        <pre><code>
+        @echo off
+        setlocal enabledelayedexpansion
+
+        set item[0]=apple
+        set item[1]=banana
+        set item[2]=cherry
+        set count=2
+
+        for /L %%i in (0,1,%count%) do (
+            echo !item[%%i]!
+        )
+  </code></pre>
+
+        <h4>FOR</h4>
+        <p>Starts a loop construct.</p>
+
+        <h4>/L parameter</h4>
+        <p>
+          Loop through a range of numbers. The syntax of sequence is (start,
+          step, end).
+        </p>
+
+        <h4>%%i</h4>
+        <p>
+          Loop variable. In batch files, use double percent signs (%%) while in
+          Shell use (%). It is the iterating variable name which will become the
+          value when provided. Use as a variable inside of loop to iterate every
+          given value of sequence.
+        </p>
+
+        <h4>DO (...)</h4>
+        <p>DO is just DO. It does everything you do in DO.</p>
+
+        <h4>!item[%%i]!</h4>
+        <p>
+          This is where the *array magic* happens. You’re telling CMD: 1.
+          Substitute the current numeric index (like `0`, `1`, `2`) into the
+          variable name `item[%%i]`.<br />
+          2. Then expand it (with delayed expansion, using `! !`) to retrieve
+          its stored value. So, iteration by iteration:
+        </p>
+
+        <pre><code>
+        i = 0 → !item[0]! → apple
+        i = 1 → !item[1]! → banana
+        i = 2 → !item[2]! → cherry
+  </code></pre>
+
+        <h4>Managing Array Count</h4>
+        <p>
+          CMD doesn't know what array is and also you need to manually track the
+          length.
+          <br />
+        </p>
+
+        <pre><code>
+        set item.array.count = 3
+        rem Index starts from 0 in scripting languages.
+  </code></pre>
+        <p>
+          If you wanna add other do this:
+          <br />
+        </p>
+
+        <pre><code>
+        set item[%count%]=date
+        set /a array.item.count+=1
+  </code></pre>
+        <br />
+        <p>It will increment the count while adding the new Array index.</p>
+
+        <h2>Common Parameters for Scripting</h2>
+        <pre><code>
+        /I for Ignore case-sensitivity  [FOR CONDITIONAL LOOPS]
+        /L for Loop Sequence: numeric
+        /F for Loop Sequence: token/text
+        No Switch for Loop Sequence: files
+        /D for Loop Sequence: Folder/Directories
+  </code></pre>
+
+        <p>
+          When you use `/L`, the parentheses `(start,step,end)` define the
+          sequence parameters:
+        </p>
+
+        <div class="wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Meaning</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>start</strong></td>
+                <td>The first number in the sequence</td>
+                <td><code>0</code></td>
+              </tr>
+              <tr>
+                <td><strong>step</strong></td>
+                <td>How much to increment (or decrement) each iteration</td>
+                <td><code>1</code></td>
+              </tr>
+              <tr>
+                <td><strong>end</strong></td>
+                <td>The number to stop at (inclusive)</td>
+                <td><code>%count%</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          So the loop:
+          <br />
+          <code> for /L %%i in (0,1,5) do echo %%i </code>
+          <br />
+          Means:
+        </p>
+
+        <pre><code>
+        > Start at 0, increase by 1 each time, stop once you hit 5.
+        > → outputs `0 1 2 3 4 5`
+        </code></pre>
+
+        <h4>If You Need Non-Sequential Iteration</h4>
+        <p>
+          You have to use a
+          <strong>different type of <code>for</code></strong> — the
+          <code>/F</code> loop.
+          <br />
+        </p>
+
+        <p>Example: loop through a predefined list of arbitrary items:</p>
+
+        <pre><code>
+for %%x in (0 2 4 7 9) do echo %%x
+</code></pre>
+
+        <p>
+          That’s a plain <code>for</code>, no <code>/L</code> — meaning it
+          iterates over <strong>words</strong> separated by spaces.
+        </p>
+
+        <p>Output:</p>
+
+        <pre><code>
+0
+2
+4
+7
+9
+</code></pre>
+
+        <p>So:</p>
+
+        <div class="wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Switch</th>
+                <th>Purpose</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>/L</code></td>
+                <td>Numeric sequence</td>
+                <td><em>start, step, end</em></td>
+              </tr>
+              <tr>
+                <td><em>(no switch)</em></td>
+                <td>Explicit list of values</td>
+                <td><em>manual entries</em></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>FOR - /X SWITCH</h3>
+      </div>
+    </main>
+
+    <footer>
+      © 2025 Batch Scripting Documentation. All rights reserved to Pushkar
+      Parate.
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

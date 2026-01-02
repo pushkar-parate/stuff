@@ -1,0 +1,405 @@
+
+/* ===================== Base ===================== */
+
+    /* THEME STYLES */
+      :root {
+        --bg: #f9f9f9;
+        --text: #333;
+        --accent: #f39c12;
+        --muted: #2c3e50;
+        --sub-head: #4aaaaa;
+        --card: #ffffffff;
+        --border-text: #ddd;
+        --links: #4690e5d4;
+      }
+
+      /* Scrollbar of Webpage */
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: var(--accent);
+        border-radius: 6px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        cursor: grab;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--border-text);
+        border-radius: 0px;
+      }
+ 
+      /* ScrollBar of SideBar*/
+      #sidebar::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      #sidebar::-webkit-scrollbar-thumb {
+        background-color: var(--accent);
+        border-radius: 5px;
+        width: 4px;
+      }
+
+      #sidebar::-webkit-scrollbar-track {
+        background-color: var(--border-text);
+        border-radius: 0px;
+      }
+
+      /* --------- GLOBAL RESETS & STYLES --------- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html:focus-within {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        font-size: clamp(0.5rem, calc(0.9dvw + 0.1rem), 1rem);
+      }
+
+      p {
+        font-size: clamp(0.65rem, calc(1dvw + 0.1rem), 1.25rem);
+        padding-bottom: min(6%, 0.75rem);
+      }
+
+/* ===================== Typography ===================== */
+
+h1 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-shadow: none;
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: min(6%, 1rem);
+  font-size: clamp(1.5rem, calc(5dvw + 0.1rem), 2.5rem);
+}
+
+h2 {
+  color: var(--muted);
+  border-bottom: 1px solid var(--border-text);
+  margin-top: min(5%, 1rem);
+  margin-left: min(6%, 1.25rem);
+  font-size: clamp(1rem, calc(2dvw + 0.2rem), 1.75rem);
+  font-weight: 650;
+}
+
+h3 {
+  color: var(--sub-head);
+  margin-top: min(8%, 1.5rem);
+  font-weight: 550;
+  font-size: clamp(0.9rem, calc(1.5dvw + 0.2rem), 1.5rem);
+  margin-left: min(12%, 2.25rem);
+}
+
+h4 {
+  font-size: clamp(0.75rem, calc(1.25dvw + 0.25rem), 1.25rem);
+  color: var(--accent);
+  margin-top: min(8%, 1.5rem);
+  margin-left: min(15%, 2.75rem);
+  font-weight: 700;
+}
+
+/* ===================== Containers ===================== */
+
+div {
+  font-family: inherit;
+  margin: 2rem 0;
+}
+
+.hero {
+  background-color: var(--muted);
+  color: var(--bg);
+  text-align: center;
+  padding: 1rem 2rem;
+  margin-top: 0;
+  margin-bottom: min(16%, 3.25rem);
+}
+
+footer {
+  background-color: var(--muted);
+  color: var(--bg);
+  text-align: center;
+  padding: 1rem 2rem;
+  margin-top: min(12%, 2rem);
+}
+
+footer p {
+  font-size: clamp(0.5rem, calc(0.8dvw + 0.1rem), 1rem);
+}
+
+/* ===================== Table Styling ===================== */
+
+      .wrap {
+        overflow-x: auto;
+
+        display: flex;
+        justify-content: center;
+      }
+      /* Make sure no scrollbar on overflow */
+      .wrap::-webkit-scrollbar,
+      .wrap table::-webkit-scrollbar {
+        display: none;
+      }
+
+      .wrap table {
+        width: min(100%, 1000px);
+        border-collapse: collapse;
+        background: var(--card);
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--muted);
+      }
+
+      .wrap table th,
+      .wrap table td {
+        padding: 1rem 1.2rem;
+      }
+
+      .wrap table th {
+        text-align: center;
+      }
+
+      .wrap table td {
+        color: var(--muted);
+        font-weight: 500;
+        text-align: justify;
+        text-wrap-mode: wrap;
+        text-wrap-style: pretty;
+      }
+
+      .wrap table thead {
+        background: linear-gradient(100deg, #f3c612e1, #ffab23ce);
+        color: var(--bg);
+      }
+
+      .wrap table tbody tr {
+        border-bottom: 1px solid var(--text);
+      }
+
+      .wrap table td:first-child {
+        font-weight: 700;
+        color: var(--accent);
+      }
+
+/* ===================== Links ===================== */
+main a {
+  font-family: Comic Sans MS;
+  letter-spacing: 1px;
+  color: var(--sub-head);
+  font-weight: 500;
+}
+
+main a:hover {
+  color: var(--links);
+  transition: color 0.4s ease;
+}
+
+/* give main content breathing room next to sidebar */
+main {
+  margin-left: 260px;
+  padding-right: 20px;
+}
+
+main.max {
+  width: min(100%, 95dvw);
+  padding: 0 0.9rem;
+  margin: auto;
+}
+
+/* ===================== Code Blocks ===================== */
+pre {
+  background: linear-gradient(180deg, white, whitesmoke);
+  border-left: 5px solid var(--accent);
+  overflow-x: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+  margin: min(10%, 1.75rem);
+  padding: 1.5rem;
+  font-size: clamp(0.5rem, calc(0.9dvw + 0.1rem), 1rem);
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+code {
+  font-size: clamp(0.5rem, calc(0.9dvw + 0.1rem), 1rem);
+}
+
+/* ===================== Section ===================== */
+.section {
+  padding: 0.5rem 0.25rem;
+  background-color: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* ===================== Lists ===================== */
+ul {
+  margin-bottom: 1.75rem;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* ===================== NAV ===================== */
+
+        #sidebar {
+          width: 0;
+          max-height: 0;
+          overflow-y: scroll;    
+          overflow-x: hidden;
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+
+        #sidebar.show {
+          position: absolute;
+          width: fit-content;
+          display: flex;
+          flex-direction: column;
+          max-height: 100dvh;
+          opacity: 1;
+          transform: translateY(0);
+          padding-left: min(12%,2.2rem);
+          padding-top: 0;
+          
+          transition: transform 0.4s ease, opacity 0.3s ease-in-out;
+        }
+
+        /* ----- HAMBURGER ----- */
+        .menu-toggle {
+          position: sticky;
+          display: block;
+          font-size: 2rem;
+          background: none;
+          border: none;
+          cursor: pointer;
+          z-index: 10;
+          margin: 12px;
+        }
+
+/* ===================== TOC ===================== */
+header {
+  height: 0;
+  width: 0;
+}
+
+#sidebar {
+  top: 0;
+  left: 0;      
+  max-width: min(100% ,15rem);
+
+  background: linear-gradient(90deg, white , whitesmoke);
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+#sidebar h2 {
+  font-size: clamp(1.25rem, calc(2.5rem + 0.25rem) , 2rem);
+  font-weight: 800;
+  color: var(--muted);
+  margin-top: 0;
+  margin-bottom: 0.9rem;
+  margin-left: 0 12px;
+  border: none;
+  text-decoration: underline var(--accent) 2px;
+  text-underline-offset: 6px;
+}
+
+#sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0.3rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+#sidebar li {
+  overflow: visible;
+  position: relative;
+}
+
+#sidebar a {
+  color: var(--text);
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 8px;
+  padding: 0 0.75rem;
+  transition: color 0.2s ease, background 0.2s ease;
+ 
+  line-height: 1.5;
+  word-spacing: 4px;
+}
+
+#sidebar li:hover {
+  background: rgba(243, 156, 18, 0.08);
+  color: var(--accent);
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+#sidebar li.toc-h2 > a {
+  color: var(--muted);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: clamp(0.5rem, calc(1dvw + 0.1rem), 1rem);
+}
+
+#sidebar li.toc-h3 > a {
+  font-weight: 750;
+  font-size: clamp(0.4rem, calc(0.95dvw + 0.2rem), 0.9rem);
+  color: var(--text);
+}
+
+#sidebar li.toc-h4 > a {
+  font-weight: 650;
+  font-size: clamp(0.35rem, calc(0.9dvw + 0.05rem), 0.8rem);
+  color: var(--accent);
+}
+
+#sidebar li.toc-h5 > a {
+  font-weight: 600;
+  color: var(--muted);
+  font-size: clamp(0.35rem, calc(0.9dvw + 0.05rem), 0.8rem);
+}
+
+#sidebar li.toc-h3 {
+  margin-left: 1rem;
+  display: none;
+}
+
+#sidebar li.toc-h4, 
+#sidebar li.toc-h5 {
+  margin-left: 1rem;
+  display: none;
+}
+
+#sidebar li.toc-h2:hover > ul > li.toc-h3 {
+  display: inline-block;
+}
+
+#sidebar li.toc-h3:hover > ul > li.toc-h4, li.toc-h5 {
+  display: inline-block;
+}
+
+#sidebar a.active {
+  color: var(--accent);
+  font-weight: 600;
+}
