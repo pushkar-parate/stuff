@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   // observe both normal and reverse cards
-  document.querySelectorAll(".project-card").forEach((card) => {
+  document.querySelectorAll(".project-card, .hero-flex").forEach((card) => {
     projectObserver.observe(card);
   });
 

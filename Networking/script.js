@@ -78,4 +78,23 @@ document.addEventListener("DOMContentLoaded", () => {
     if (level === 4) currentH4Li = li;
     if (level === 5) currentH5Li = li;
   });
+
+  // ------------- MENU BAR LOGIC -------------
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector("#sidebar");
+  const mainMax = document.querySelector(".max");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+    mainMax.classList.toggle("max");
+  });
+
+  // Close menu on link click
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("show");
+    });
+  });
+
+  // ----------------- END OF SCRIPT ------------------ //
 });

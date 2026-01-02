@@ -1,16 +1,20 @@
-
-/* ===================== Base ===================== */
-
     /* THEME STYLES */
       :root {
         --bg: #f9f9f9;
         --text: #333;
-        --accent: #f39c12;
+        --accent: #f39c10;
         --muted: #2c3e50;
-        --sub-head: #4aaaaa;
-        --card: #ffffffff;
+        --sub-head: #4aa;
+        --card: #fff;
         --border-text: #ddd;
-        --links: #4690e5d4;
+        --links: #4690e5d0;
+        --sidebar-width: 290px;
+        --sidebar-collapsed-width: 67px;
+        --transition-fast: 0.3s;
+        --toc-h3-color: #024d67bd;
+        --toc-h4-color: #00986170;
+        --toc-h5-color: var(--accent);
+        --toc-h6-color: #e67e20;
       }
 
       /* Scrollbar of Webpage */
@@ -55,6 +59,10 @@
         box-sizing: border-box;
       }
 
+      html {
+        overflow-x: hidden;
+      }
+
       html:focus-within {
         scroll-behavior: smooth;
       }
@@ -63,7 +71,6 @@
         font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
         background: var(--bg);
         color: var(--text);
-        line-height: 1.7;
         overflow-x: hidden;
       }
 
@@ -90,11 +97,14 @@ h1 {
 
 h2 {
   color: var(--muted);
-  border-bottom: 1px solid var(--border-text);
   margin-top: min(5%, 1rem);
   margin-left: min(6%, 1.25rem);
-  font-size: clamp(1rem, calc(2dvw + 0.2rem), 1.75rem);
+  margin-bottom: 1rem;
+  font-size: clamp(1.25rem, calc(2.25dvw + 0.25rem), 1.9rem);
   font-weight: 650;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.3rem;
+  width: fit-content;
 }
 
 h3 {
@@ -124,9 +134,7 @@ div {
   background-color: var(--muted);
   color: var(--bg);
   text-align: center;
-  padding: 1rem 2rem;
-  margin-top: 0;
-  margin-bottom: min(16%, 3.25rem);
+  padding: 1rem;
 }
 
 footer {
@@ -210,8 +218,8 @@ main a:hover {
 
 /* give main content breathing room next to sidebar */
 main {
-  margin-left: 260px;
-  padding-right: 20px;
+  margin-left: 28%;
+  padding-right: 2%;
 }
 
 main.max {
@@ -242,7 +250,7 @@ code {
 
 /* ===================== Section ===================== */
 .section {
-  padding: 0.5rem 0.25rem;
+  padding: 0.5rem;
   background-color: var(--card);
   border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -258,148 +266,165 @@ li {
   margin-bottom: 0.5rem;
 }
 
-/* ===================== NAV ===================== */
 
-        #sidebar {
-          width: 0;
-          max-height: 0;
-          overflow-y: scroll;    
-          overflow-x: hidden;
-          opacity: 0;
-          transform: translateY(-20px);
-        }
+/* ===================== Navigation ===================== */
+nav {
+  margin-top: min(6% ,1rem);
+}
 
-        #sidebar.show {
-          position: absolute;
-          width: fit-content;
-          display: flex;
-          flex-direction: column;
-          max-height: 100dvh;
-          opacity: 1;
-          transform: translateY(0);
-          padding-left: min(12%,2.2rem);
-          padding-top: 0;
-          
-          transition: transform 0.4s ease, opacity 0.3s ease-in-out;
-        }
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+nav li a {
+  color: var(--muted);
+  font-weight: bold;
+  transition: color 0.3s;
+}
 
         /* ----- HAMBURGER ----- */
         .menu-toggle {
           position: sticky;
           display: block;
-          font-size: 2rem;
+          font-size: 1.5rem;
           background: none;
           border: none;
           cursor: pointer;
-          z-index: 10;
-          margin: 12px;
+          z-index: 100;
+          margin: 1%;
         }
-
-/* ===================== TOC ===================== */
-header {
-  height: 0;
-  width: 0;
-}
-
+  
+/* ===================== Sidebar / TOC ===================== */
 #sidebar {
+  position: relative;
+  left: 0;
   top: 0;
-  left: 0;      
-  max-width: min(100% ,15rem);
-
-  background: linear-gradient(90deg, white , whitesmoke);
-  font-family: 'Segoe UI', Tahoma, sans-serif;
-}
-
-#sidebar h2 {
-  font-size: clamp(1.25rem, calc(2.5rem + 0.25rem) , 2rem);
-  font-weight: 800;
-  color: var(--muted);
+  bottom: 0;
+  width: 0;
+  max-height: 0;
+  opacity: 0;
   margin-top: 0;
-  margin-bottom: 0.9rem;
-  margin-left: 0 12px;
-  border: none;
-  text-decoration: underline var(--accent) 2px;
-  text-underline-offset: 6px;
+  background: var(--bg);
+  border-right: 1px solid var(--border-text);
+  transform: translateY(-20px);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  transition: width var(--transition-fast) ease, transform var(--transition-fast) ease, opacity var(--transition-fast) ease;
 }
 
-#sidebar ul {
-  list-style: none;
-  margin: 0;
-  padding-left: 0.3rem;
-
-  display: flex;
+#sidebar.show {
+  position: absolute;
+  width: min(25%, 16rem);
+  display: flex;    
   flex-direction: column;
-  gap: 0;
+  max-height: max-content;
+  opacity: 1;
+  transform: translateY(0);
+  padding-left: min(7.5%, 1.5rem);
+  padding-top: 0;
+  transition: transform 0.4s ease, opacity 0.3s ease-in-out;
 }
 
-#sidebar li {
+/* ===================== TOC List ===================== */
+#nav-list {
+  list-style: none;
+  padding: 0;
+}
+
+#nav-list li {
+  margin-bottom: 0.5rem;
   overflow: visible;
   position: relative;
 }
 
-#sidebar a {
-  color: var(--text);
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 8px;
-  padding: 0 0.75rem;
-  transition: color 0.2s ease, background 0.2s ease;
- 
-  line-height: 1.5;
-  word-spacing: 4px;
+#nav-list ul {
+  list-style: none;
+  padding-left: 1rem;
+  margin: 0;
 }
 
-#sidebar li:hover {
-  background: rgba(243, 156, 18, 0.08);
-  color: var(--accent);
-  transition: color 0.3s ease, background 0.3s ease;
+#nav-list li a {
+  display: block;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 600;
+  line-height: 1.4;
+  padding: 0.25rem 0;
+  word-wrap: break-word;
+  transition: all 0.3s;
 }
 
-#sidebar li.toc-h2 > a {
+#nav-list li a:hover {
   color: var(--muted);
+  background-color: rgba(250, 235, 215, 0.619);
+  border-radius: 7px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 7px;
+}
+
+/* ===================== H2 always expanded ===================== */
+.toc-h2 > a {
   text-transform: uppercase;
-  font-weight: 700;
-  font-size: clamp(0.5rem, calc(1dvw + 0.1rem), 1rem);
-}
-
-#sidebar li.toc-h3 > a {
-  font-weight: 750;
-  font-size: clamp(0.4rem, calc(0.95dvw + 0.2rem), 0.9rem);
-  color: var(--text);
-}
-
-#sidebar li.toc-h4 > a {
-  font-weight: 650;
-  font-size: clamp(0.35rem, calc(0.9dvw + 0.05rem), 0.8rem);
-  color: var(--accent);
-}
-
-#sidebar li.toc-h5 > a {
-  font-weight: 600;
   color: var(--muted);
-  font-size: clamp(0.35rem, calc(0.9dvw + 0.05rem), 0.8rem);
+  font-weight: 700;
 }
 
-#sidebar li.toc-h3 {
-  margin-left: 1rem;
+.toc-h2 > ul.child-list {
+  display: block;
+  padding-left: 0.5rem;
+}
+
+/* ===================== Collapsible H3-H6 on hover ===================== */
+.toc-h3, .toc-h4, .toc-h5, .toc-h6 {
+  position: relative;
+}
+
+.toc-h3 > a { color: var(--toc-h3-color); padding-left: 0.5rem; }
+.toc-h4 > a { color: var(--toc-h4-color); padding-left: 1rem; }
+.toc-h5 > a { color: var(--toc-h5-color); padding-left: 1.5rem; }
+.toc-h6 > a { color: var(--toc-h6-color); padding-left: 2rem; }
+
+.toc-h3 > ul.child-list,
+.toc-h4 > ul.child-list,
+.toc-h5 > ul.child-list,
+.toc-h6 > ul.child-list {
   display: none;
+  padding-left: 0.5rem;
 }
 
-#sidebar li.toc-h4, 
-#sidebar li.toc-h5 {
-  margin-left: 1rem;
-  display: none;
+.toc-h3:hover > ul.child-list,
+.toc-h4:hover > ul.child-list,
+.toc-h5:hover > ul.child-list,
+.toc-h6:hover > ul.child-list {
+  display: block;
 }
 
-#sidebar li.toc-h2:hover > ul > li.toc-h3 {
-  display: inline-block;
+@media (min-width: 768px) {
+  #transmission-media .info-block {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+  #transmission-media .info-block img {
+    max-width: 200px;
+    margin-bottom: 0;
+  }
 }
 
-#sidebar li.toc-h3:hover > ul > li.toc-h4, li.toc-h5 {
-  display: inline-block;
+/* -------- SETTING: REDUCED-MOTION -------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
 }
 
-#sidebar a.active {
-  color: var(--accent);
-  font-weight: 600;
+@media (max-width:550px) {
+  #sidebar.show {
+    width: min(32% ,16rem);
+  }
 }

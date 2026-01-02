@@ -1,90 +1,83 @@
 document.addEventListener("DOMContentLoaded", () => {
-  ("use strict");
+  const navList = document.getElementById("nav-list");
+  const headings = document.querySelectorAll(
+    "main h2, main h3, main h4, main h5, main h6"
+  );
 
-  const container = document.querySelector("#sidebar");
-  if (!container) return;
-
-  // Use existing ul if present (avoid duplicate IDs)
-  let list = container.querySelector("#nav-list");
-  if (!list) {
-    list = document.createElement("ul");
-    list.id = "nav-list";
-    container.appendChild(list);
-  } else {
-    // clear any existing items safely
-    list.innerHTML = "";
+  // Convert heading text to URL-friendly ID
+  function slugify(text) {
+    return text
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, "-")
+      .replace(/[^a-z0-9\-]/g, "");
   }
 
-  // Collect headings inside main
-  const headings = document.querySelectorAll(
-    "main h2, main h3, main h4, main h5"
-  );
-  if (!headings.length) return;
+  let currentH2Ul = null;
+  let currentH3Li = null;
+  let currentH4Li = null;
+  let currentH5Li = null;
 
   headings.forEach((h) => {
-    // generate stable id
-    const id = h.textContent.trim().replace(/\s+/g, "-").toLowerCase();
-    if (!h.id) h.id = id;
+    if (!h.id) h.id = slugify(h.textContent);
 
+    const level = parseInt(h.tagName.substring(1), 10);
     const li = document.createElement("li");
-    li.classList.add(`toc-${h.tagName.toLowerCase()}`);
+    li.classList.add(`toc-h${level}`);
 
-    const link = document.createElement("a");
-    link.textContent = h.textContent;
-    link.href = `#${h.id}`;
-    li.appendChild(link);
+    const a = document.createElement("a");
+    a.href = `#${h.id}`;
+    a.textContent = level === 2 ? h.textContent.toUpperCase() : h.textContent;
 
-    list.appendChild(li);
-  });
-
-  // --- Nest headings correctly by tag level ---
-  const h2Items = [...list.querySelectorAll("li.toc-h2")];
-  const h3Items = [...list.querySelectorAll("li.toc-h3")];
-  const h4Items = [...list.querySelectorAll("li.toc-h4")];
-  const h5Items = [...list.querySelectorAll("li.toc-h5")];
-
-  function nestChildren(childItems, parentItems) {
-    childItems.forEach((child) => {
-      // find the nearest previous parent item
-      const parent = [...parentItems].reverse().find((p) => {
-        return (
-          p.compareDocumentPosition(child) & Node.DOCUMENT_POSITION_FOLLOWING
-        );
-      });
-      if (parent) {
-        let sub = parent.querySelector("ul.child-list");
-        if (!sub) {
-          sub = document.createElement("ul");
-          sub.classList.add("child-list");
-          parent.appendChild(sub);
-        }
-        sub.appendChild(child);
-      }
-    });
-  }
-
-  nestChildren(h3Items, h2Items);
-  nestChildren(h4Items, h3Items);
-  nestChildren(h5Items, h4Items);
-
-  // --- Smooth scroll ---
-  list.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", (e) => {
+    // Smooth scroll
+    a.addEventListener("click", (e) => {
       e.preventDefault();
-      const target = document.querySelector(link.getAttribute("href"));
-      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      document
+        .getElementById(h.id)
+        .scrollIntoView({ behavior: "smooth", block: "start" });
     });
-  });
 
-  // --- Hover expand classes (keep but non-destructive) ---
-  container
-    .querySelectorAll("li.toc-h2, li.toc-h3, li.toc-h4")
-    .forEach((item) => {
-      item.addEventListener("mouseenter", () => item.classList.add("expanded"));
-      item.addEventListener("mouseleave", () =>
-        item.classList.remove("expanded")
-      );
-    });
+    li.appendChild(a);
+
+    const childUl = document.createElement("ul");
+    childUl.classList.add("child-list");
+    li.appendChild(childUl);
+
+    if (level === 2) {
+      navList.appendChild(li);
+      currentH2Ul = childUl;
+      currentH3Li = null;
+      currentH4Li = null;
+      currentH5Li = null;
+    } else if (level === 3) {
+      (currentH2Ul || navList).appendChild(li);
+      currentH3Li = li;
+      currentH4Li = null;
+      currentH5Li = null;
+    } else if (level >= 4) {
+      let parentUl;
+      if (level === 4)
+        parentUl =
+          currentH3Li?.querySelector("ul.child-list") || currentH2Ul || navList;
+      if (level === 5)
+        parentUl =
+          currentH4Li?.querySelector("ul.child-list") ||
+          currentH3Li?.querySelector("ul.child-list") ||
+          currentH2Ul ||
+          navList;
+      if (level === 6)
+        parentUl =
+          currentH5Li?.querySelector("ul.child-list") ||
+          currentH4Li?.querySelector("ul.child-list") ||
+          currentH3Li?.querySelector("ul.child-list") ||
+          currentH2Ul ||
+          navList;
+      parentUl.appendChild(li);
+    }
+
+    if (level === 4) currentH4Li = li;
+    if (level === 5) currentH5Li = li;
+  });
 
   // ------------- MENU BAR LOGIC -------------
   const menuToggle = document.querySelector(".menu-toggle");
@@ -103,5 +96,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ===================== END OF SCRIPT ====================== //
+  // ----------------- END OF SCRIPT ------------------ //
 });
