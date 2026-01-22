@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const now = new Date();
+  console.log(
+    `Site loaded at :\n${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
+  );
+
   /* ---------- NAV BAR ANIMATION ON SCROLL ----------- */
   const nav = document.querySelector("nav");
   if (!nav) return;
@@ -22,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { threshold: 0.25 }
+    { threshold: 0.25 },
   );
 
   sections.forEach((section) => observer.observe(section));
@@ -166,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       threshold: 0.3,
-    }
+    },
   );
 
   // observe both normal and reverse cards

@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const now = new Date();
+  console.log(
+    `E-MailJS Script loaded at :\n${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
+  );
   emailjs.init("2Ct8Jmf0npBv6bf9r");
 
   const form = document.getElementById("contact-form");
