@@ -6,7 +6,7 @@ let array = ["noun", "pronoun", true, null, false, 83];
 // For Loop
 console.log(
   "%cFOR LOOP",
-  "color:red; font-size:16px; text-transform:uppercase; font-weight: bolder; padding:12px"
+  "color:red; font-size:16px; text-transform:uppercase; font-weight: bolder; padding:12px",
 );
 for (let index = 0; index < array.length; index++) {
   console.log(`${array[index]}`);
@@ -15,7 +15,7 @@ for (let index = 0; index < array.length; index++) {
 // For IN Loop
 console.log(
   "%cFOR IN LOOP",
-  "color:red; font-size:16px; text-transform:uppercase; font-weight: bolder; padding:12px"
+  "color:red; font-size:16px; text-transform:uppercase; font-weight: bolder; padding:12px",
 );
 for (keys in array) {
   console.log(`${array[keys]}`);
@@ -24,7 +24,7 @@ for (keys in array) {
 // For OF Loop
 console.log(
   "%cFOR OF LOOP",
-  "color:red; font-size:16px; text-transform:uppercase; font-weight: bolder; padding:12px"
+  "color:red; font-size:16px; text-transform:uppercase; font-weight: bolder; padding:12px",
 );
 for (let keys of array) {
   console.log(`${keys}`);
@@ -37,7 +37,7 @@ let array0 = [45, 24, 8, 23, 1, 77, 30];
 
 console.log(
   "%cFOR EACH LOOP",
-  "color:red; font-size:16px; text-transform:uppercase; font-weight: bolder; padding:12px"
+  "color:red; font-size:16px; text-transform:uppercase; font-weight: bolder; padding:12px",
 );
 
 array0.forEach((element) => {
@@ -48,7 +48,7 @@ array0.forEach((element) => {
 console.log(
   "%cMAP",
   "color:red; font-size:16px; text-transform:uppercase; font-weight: bolder; padding:12px",
-  "Used to create new array by making changes in existing array. Can be used same as FOR EACH LOOP for arrays like this:"
+  "Used to create new array by making changes in existing array. Can be used same as FOR EACH LOOP for arrays like this:",
 );
 array0.map((element) => {
   console.log(`${element}`);
@@ -67,7 +67,7 @@ console.log("%cFor Each wont do that shit.", "color:aqua");
 console.log(
   "%cFILTER",
   "color:red; font-size:16px; text-transform:uppercase; font-weight: bolder; padding:12px",
-  "Used to filter values using relational operators and it creates 'new arrays' like this:"
+  "Used to filter values using relational operators and it creates 'new arrays' like this:",
 );
 let arr = array0.filter((element) => {
   return element < 50;
@@ -77,7 +77,7 @@ arr.forEach((element) => {
 });
 console.log(
   "%cMAP wont do that shit.\nIf you use map() then the created array will be BOOLEAN LOGIC.",
-  "color:aquamarine"
+  "color:aquamarine",
 );
 
 /* ==================== PRACTISE SET QUESTIONS ==================== */
