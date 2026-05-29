@@ -36,7 +36,7 @@
           </em>
         </p>
         <p>
-          <a href="./dos-commands.txt"
+          <a href="./dos-commands.md"
             >Click Here to Access All Commands Text File.</a
           >
         </p>
@@ -64,20 +64,39 @@
         <h2>FILE & DIRECTORY MANIPULATION</h2>
         <pre><code>
         dir                           List files and folders
-        dir /s /b                     Full path of all files recursively
         cd ..                         Go one level up
         cd \                          Go to root
         mkdir test                    Creates "test" directory
-        del /f /s /q *.log            Force delete .log files silently
+        del /f /s /q *.log            Force delete .log files Quielty from all Sub-directories
+        del \*.pdf || del NC ??.pdf   Delete all PDF [IF FAIL]: Delete PDF with 'NC '--random char/number--'.pdf'.
         copy file1.txt D:\            Copy to D:\
-        xcopy /e /h /k /y s\ d\       Copy all (hidden too)
-        robocopy src dest /mir        Mirror folders
-        move file.txt D:\arc\         Move or rename
-        attrib +h +s file.txt         Hide file
-        ren old.txt new.txt           Rename file
+        move file.txt D:\users\       Move
+        attrib +h -s file.txt         Set/Clear File Attributes
+        move old.txt new.txt          Rename file
         tree /f                       Show folder structure with files
         type file.txt                 Print contents
    </code></pre>
+      </div>
+
+      <div class="section">
+        <h2>NETWORKING ESSENTIALS</h2>
+        <pre>
+        ipconfig /all                   Full adapter info
+        ipconfig /release               Drop IP lease
+        ping google.com                 Check host reachability
+        tracert google.com              Trace route
+        netstat -b                      Display the services and apps responsible for processes
+        netstat -o                      Display their respective PID
+        netstat -an | findstr ":80"
+        netstat -anob                   # Best to use command #
+        netstat -r                      Display the Routing Table
+        arp -a                          IP ↔ MAC mappings
+        arp -s/-d                       Add/ Delete MAC from arp cache
+        route print                     Routing table
+        nslookup google.com             DNS lookup
+        getmac                          Show MAC addresses
+        <!-- net,telnet,curl,ftp,nmap -->
+    </pre>
       </div>
 
       <div class="section">
@@ -87,7 +106,7 @@
         taskkill /pid [pid]         Kill a task [/f for forcefully]
         sc query                    List all services
         sc query windefend          Get info for windefend
-        sc query | findstr ""       Find serviice names by str
+        sc query | findstr ""       Find serviice names by string
         </code></pre>
       </div>
 
@@ -136,27 +155,6 @@ textfilelegacy="C:/Programs/text.exe"</pre
           So, <code>ftype</code> sets the program for the ftype whereas
           <code>assoc</code> sets extension for ftype
         </p>
-      </div>
-
-      <div class="section">
-        <h2>NETWORKING ESSENTIALS</h2>
-        <pre>
-        ipconfig /all                   Full adapter info
-        ipconfig /release               Drop IP lease
-        ping google.com                 Check host reachability
-        tracert google.com              Trace route
-        netstat -b                      Display the services and apps responsible for processes
-        netstat -o                      Display their respective PID
-        netstat -an | findstr ":80"
-        netstat -anob                   # Best to use command #
-        netstat -r                      Display the Routing Table
-        arp -a                          IP ↔ MAC mappings
-        arp -s/-d                       Add/ Delete MAC from arp cache
-        route print                     Routing table
-        nslookup google.com             DNS lookup
-        getmac                          Show MAC addresses
-    </pre
-        >
       </div>
 
       <div class="section">
