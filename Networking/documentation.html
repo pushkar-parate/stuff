@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=7" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta
       name="description"
@@ -42,93 +41,22 @@
             >Github</a
           >
         </p>
-        <p>
-          <em>
-            Get Cisco Packet Tracer for visualizing network connections and
-            hardware.
-          </em>
-        </p>
       </div>
 
       <!-- Network Types -->
       <section id="network-types-section">
         <h2 id="network-types">Network Types</h2>
 
-        <article id="pan" class="info-block">
-          <h3 id="personal-area-network-pan">Personal Area Network [PAN]</h3>
-          <p>
-            The network of devices we use in our homes. All are connected to a
-            router which provides similar private IPv4 addresses like
-            192.168.31.29, 192.168.250 and so on till 255.
-          </p>
-        </article>
-
         <article id="lan" class="info-block">
           <h3 id="local-area-network-lan">Local Area Network [LAN]</h3>
           <p>
-            Collection of PANs makes up a LAN network. Usually in a building of
-            office. A wireless connection will make it a W-LAN. W for Wireless.
+            The network of devices we use in our homes. All are connected to a
+            router/hub which provides same group of Public IPs for outer
+            communication but use Private IPv4 addresses like 10.x.x.x 172.x.x.x
+            192.x.x.x for inside communication btw LAN.
           </p>
         </article>
 
-        <article id="can" class="info-block">
-          <h3 id="campus-area-network-can">Campus Area Network [CAN]</h3>
-          <p>
-            Collection of LANs makes up a CAN network. Usually in schools and
-            organizations where 2-3 buildings of the campus are connected.
-          </p>
-        </article>
-
-        <article id="man" class="info-block">
-          <h3 id="metropolitan-area-network-man">
-            Metropolitan Area Network [MAN]
-          </h3>
-          <p>
-            Collections of CANs is a MAN network. It is set up by ISPs of a city
-            to connect them and configure together. It has range of a
-            metro-city.
-          </p>
-        </article>
-
-        <article id="wan" class="info-block">
-          <h3 id="wide-area-network-wan">Wide Area Network [WAN]</h3>
-          <p>
-            Literally the World. What we say the Internet is the WAN network.
-          </p>
-        </article>
-
-        <h3 id="private-networks">Some more Private Networks</h3>
-        <br />
-
-        <article id="san" class="info-block">
-          <h4 id="storage-area-network-san">Storage Area Network [SAN]</h4>
-          <p>
-            When a storage pool is connected to a network it's a SAN network. It
-            stores the data of the nodes or nodes can receive. It's like the
-            cloud storage.
-          </p>
-        </article>
-
-        <article id="epn" class="info-block">
-          <h4 id="enterprise-private-network-epn">
-            Enterprise Private Network [EPN]
-          </h4>
-          <p>
-            A configured network by an Admin over the Enterprise. Only employee
-            devices can be connected and access this network.
-          </p>
-        </article>
-
-        <article id="vpn" class="info-block">
-          <h4 id="virtual-private-network-vpn">
-            Virtual Private Network [VPN]
-          </h4>
-          <p>
-            When two networks are connected, hackers can spoof them or admin can
-            view their data. For privacy a tunneled network can be created by
-            VPN services.
-          </p>
-        </article>
         <article id="subnet-vlan" class="info-block">
           <h4>Subnet / Virtual LAN [VLAN]</h4>
           <br />
@@ -157,20 +85,11 @@
         <h2 id="network-architectures">NETWORK ARCHITECTURES</h2>
 
         <article id="p2p" class="info-block">
-          <h3 id="p2p-peer-to-peer">P2P [Peer-to-Peer]</h3>
-          <p>
-            It is a model where two devices are connected to each other without
-            any SERVER which controls the transmission of data and sets
-            protocols. Thus, two nodes are directly connected.
-          </p>
+          <h3 id="p2p-peer-to-peer">1. P2P [Peer-to-Peer]</h3>
         </article>
 
         <article id="client-server" class="info-block">
-          <h3 id="client-server-architecture">Client-Server Architecture</h3>
-          <p>
-            In this model, devices are connected to a central controlling
-            device, SERVER, which controls the data transmission protocols.
-          </p>
+          <h3 id="client-server-architecture">2. Client-Server Architecture</h3>
         </article>
       </section>
 
@@ -326,10 +245,8 @@
         <article id="dafault-gateway" class="info-block">
           <h3 id="default-gateway">Default GateWay</h3>
           <p>
-            It is the IP address of the Router in a LAN network through which
-            data packets are sent to other networks. <br /><br />
-            It is the device which connects your LAN to other networks and is
-            'Default' because it is the first option looked upon when exiting.
+            It is the Routing Device which connects to different network. <br /><br />
+            It is the one which connects your subnet to other subnets or internet. Like Routers, Hubs and Mobile Hotspot.
           </p>
         </article>
       </section>
@@ -538,14 +455,58 @@
         </article>
       </section>
 
+      <!-- Network Adapters -->
+      <section id="network-adapters-section" class="info-block>
+        <h2 id="network-adapters">Network Adapters and Interfaces</h2>
+        <p>
+          Network Adapters are interfaces through which our system transfer data
+          to GateWay.
+        </p>
+
+        <article id="npcap-loopback">
+          <h3 id="npcap-loopback-adapter">Npcap LoopBack Adapter</h3>
+          <p>
+            It is a virtual adapter used by Network Traffic Analyzer like
+            Wireshark and tools like Nmap. It uses <b>APIPA IP</b> because it
+            only works for local network traffic.
+          </p>
+        </article>
+
+        <article id="tap-v9">
+          <h3 id="tap-v9-adapter">Windows TAP Adapter V9</h3>
+          <p>
+            Also a Virtual Adapter, created by VPN services and responsible for creating Virtual Private Networks.
+          </p>
+        </article>
+
+        <article id="software-loopback">
+          <h3 id="software-loopback-interface">Software LoopBack Interface</h3>
+          <p>
+            Used by applications for network diagnostics and TCP/IP testing. It is the LoopBack Address 127.0.0.0/8.
+          </p>
+        </article>
+
+        <article id="wifi">
+          <h3 id="wifi-adapters">WiFi Adapters</h3>
+          <p>
+            There is 1 Physical Adapter the one which gives you your identity and more Virtual WiFi Adapters which usually show "Media Disconnected". usually like: <br>
+            <b>Wireless LAN adapter Wi-Fi</b><br>
+            IPv4 Address : 10.199.194.10 <br>
+            Subnet Mask  : 255.255.255.0 <br>
+            Gateway      : 10.199.194.188 <br>
+            <br>
+            If there's any network trouble, look for this!
+          </p>
+        </article>
+      </section>
+
       <!-- IPv4 Addressing -->
       <section id="ipv4-addressing-section">
         <h2 id="ipv4-addressing">IPv4 Addressing</h2>
         <p>
-          It has 4 8-Bit Octets forming a 32 bit Unique Address assigned in a
+          It has 4 set of bytes forming a 32 bit Unique Address assigned in a
           Network. In each octet numbers range from 0-255. <br />
-          This was introduced by IANA [Internet Assigned Numebers Authority] and
-          is also managed by them.
+          This was introduced by IANA [Internet Assigned Numebers Authority].
         </p>
 
         <article id="reading-ipv4" class="info-block">
@@ -665,6 +626,14 @@
           </table>
           <p>127.0.0.0 to 127.255.255.255 is a range of Loop-Back IP's.</p>
 
+          <h4 id="cidr-notation">CIDR Notation or IP Prefix-Length</h4>
+          IPv4 is 32-bit address comprising 4 sets of 8-bits or 1 Byte. Prefix
+          length is the number of bits entitled to network part of an address.
+          by which we can instantly tell its network size.
+          <b>It does not tell IP Class</b> <br />
+          <br />
+          Bigger CIDR = Less Network Size and vice-versa
+
           <h4 id="class-a">Class A IP</h4>
           <p>
             These are like WAN having significant
@@ -716,8 +685,8 @@
 
           <h4 id="loopback-ip">Loopback IP</h4>
           <p>
-            <strong>Range:</strong> 127.0.0.0 to 127.255.255.255. <br /><br />
-            These IPs are used for communication within your own machine.
+            <strong>Range:</strong> 127.0.0.0/8 <br /><br />
+            These IPs are used for communication within your own machine for diagnostics. 
           </p>
 
           <h5 id="loopback-uses">Practical Uses</h5>
@@ -745,14 +714,20 @@
             maintain internal security and testing on your own system.
           </p>
 
-          <h4 id="limited-broadcast">Limited Broadcast Address</h4>
+          <h4 id="broadcast-address">Broadcast IP Address</h4>
           <p>
-            <strong>Address:</strong> 255.255.255.255 <br /><br />
+            <strong>Address:</strong> x.x.x.255<br /><br />
             This is a
             <strong>Reserved IP Address for Limited Broadcast</strong> — it
-            refers to "everyone" on the local network. It’s used to broadcast
-            messages to all hosts on a LAN. It is not a subnet mask or a valid
+            refers to "everyone" on the network. It’s used to broadcast messages
+            to all hosts on a network. It is not a subnet mask or a valid
             assignable IPv4 address.
+            <br />
+            All Host Bits are set to value 255.
+            <b>Example:</b><br />
+            10.19.94.255 <br />
+            255.255.255.255 <br />
+            169.254.255.255
           </p>
 
           <h5 id="limited-broadcast-uses">Common Uses</h5>
@@ -772,6 +747,20 @@
             </li>
           </ul>
           <br />
+
+          <h4 id="multicast-address">Multicast IP Address</h4>
+          <p>
+            <strong>Address:</strong> 224.0.0.0 to 239.255.255.255<br /><br />
+            This is a
+            <strong>Reserved IP Address for Multicast</strong> — it refers to "a
+            group" on the network.
+            <br />
+            All IP in this range are multicast regardless of broadcast rule.
+            <b>Example:</b><br />
+            226.0.0.0 <br />
+            238.1.255.255 <br />
+            225.255.255.255
+          </p>
 
           <h4 id="apipa-class">APIPA (Automatic Private IP Addressing)</h4>
           <p>
