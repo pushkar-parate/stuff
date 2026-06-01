@@ -25,3 +25,25 @@ Drop and provide new IP [4/6].
 ping → "Can I reach it?"
 tracert → "How do I reach it?"
 pathping → "Where is quality being lost?"
+
+# ping -a [IP]
+
+Get to know its domain name or hostname as per NetBIOS cache over TCP/IP. or use another command:
+nbtstat -a [IP]. Same purpose but no pinging.
+
+# nbtstat -n
+
+View NetBIOS Local Name Table for Adapters and specific service written inside <> which are service codes.
+
+```color
+INTERFACE:
+Node IpAddress: [IP ADDRESS] Scope Id: []
+
+                NetBIOS Local Name Table
+
+       Name               Type         Status
+    ---------------------------------------------
+    HOSTNAME       <20>  UNIQUE      Registered
+    HOSTNAME2      <00>  UNIQUE      Registered
+    WORKGROUP      <00>  GROUP       Registered
+```

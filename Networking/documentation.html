@@ -527,8 +527,19 @@
             <br />
             <br />
             The 0 part will be Host Part in the IP Address. And 255 will be the
-            Network Part in IP Address.
+            Network Part in IP Address. <br> 
+            Network masks can be written in CIDR Notation also.
           </p>
+          
+          <h4 id="cidr-notation">CIDR Notation or IP Prefix-Length</h4>
+          <p>    
+          IPv4 is 32-bit address comprising 4 sets of 8-bits or 1 Byte. Prefix
+          length is the number of bits entitled to network part of an address.
+          by which we can instantly tell its network size.
+          <b>It does not tell IP Class</b> <br />
+          <br />
+          Bigger CIDR = Less Network Size and vice-versa
+        </p>
         </article>
 
         <article id="ip-classes" class="info-block">
@@ -606,16 +617,8 @@
               </tr>
             </tbody>
           </table>
-          <p>127.0.0.0 to 127.255.255.255 is a range of Loop-Back IP's.</p>
-
-          <h4 id="cidr-notation">CIDR Notation or IP Prefix-Length</h4>
-          IPv4 is 32-bit address comprising 4 sets of 8-bits or 1 Byte. Prefix
-          length is the number of bits entitled to network part of an address.
-          by which we can instantly tell its network size.
-          <b>It does not tell IP Class</b> <br />
-          <br />
-          Bigger CIDR = Less Network Size and vice-versa
-
+          <p>127.0.0.0/8 is a block of Loop-Back IP's.</p>
+      
           <h4 id="class-a">Class A IP</h4>
           <p>
             These are like WAN having significant
