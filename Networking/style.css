@@ -35,7 +35,7 @@
         background: var(--border-text);
         border-radius: 0px;
       }
- 
+
       /* ScrollBar of SideBar*/
       #sidebar::-webkit-scrollbar {
         width: 6px;
@@ -225,7 +225,7 @@ nav li a {
 #sidebar.show {
   position: absolute;
   width: min(25%, 16rem);
-  display: flex;    
+  display: flex;
   flex-direction: column;
   max-height: max-content;
   opacity: 1;
@@ -343,15 +343,13 @@ nav li a {
 .info-block p {
   color: #555;
   margin-bottom: 1rem;
-  font-family: cursive;
 }
 
 .info-block img {
-  max-width: 100%;
-  height: auto;
+  max-height: 100dvh;
+  width: auto;
   display: block;
-  margin-bottom: 1.3rem;
-  border-radius: 12px;
+  margin-bottom: 1rem;
 }
 
 /* ===================== Transmission Media Section ===================== */
@@ -382,6 +380,7 @@ table {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  table-layout: fixed; /* prevent long cells from expanding layout */
 }
 
 caption {
@@ -396,6 +395,31 @@ table td {
   border-bottom: 1px solid var(--border-text);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: var(--text);
+  word-break: break-word; /* allow long words/URLs to wrap */
+  overflow-wrap: anywhere;
+  white-space: normal; /* ensure wrapping on small screens */
+}
+
+/* Make tables horizontally scrollable on very narrow viewports as a fallback */
+.table-responsive, article .info-block table, main table {
+  max-width: 100%;
+}
+
+@media (max-width: 550px) {
+  /* Reduce padding and font-size so tables fit better */
+  table {
+    font-size: 0.95rem;
+  }
+
+  table th, table td {
+    padding: 0.5rem 0.6rem;
+  }
+
+  /* Allow touch-friendly horizontal scrolling when content still overflows */
+  article .info-block {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 h5 { color: var(--toc-h5-color); }
@@ -404,7 +428,6 @@ table th {
   background-color: var(--sub-head);
   color: var(--card);
   font-weight: 670;
-  font-family: cursive;
 }
 
 table tr:last-child td { border-bottom: none; }
@@ -439,6 +462,14 @@ article iframe {
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(13, 38, 63, 0.12);
   display: block;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+#conversions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
 /* Fallback for older browsers: ensure a minimum height if aspect-ratio isn't supported */
@@ -487,5 +518,39 @@ footer {
 @media (max-width:550px) {
   #sidebar.show {
     width: min(32% ,16rem);
+  }
+
+  /* Slightly reduce main text for small phones to improve fit */
+  main, body {
+    font-size: 0.95rem;
+  }
+
+  main p {
+    font-size: 0.92rem;
+  }
+
+  /* Reduce heading left indents and scale down headings a bit */
+  h1 {
+    font-size: clamp(1.6rem, calc(5dvw + 0.2rem), 2.2rem);
+  }
+
+  h2 {
+    margin-left: 0.8rem;
+    font-size: 1.4rem;
+  }
+
+  h3 {
+    margin-left: 1rem;
+    font-size: 1.1rem;
+  }
+
+  h4 {
+    margin-left: 1.25rem;
+    font-size: 1rem;
+  }
+
+  /* Slightly reduce link size within main content */
+  main a {
+    font-size: 0.95rem;
   }
 }
