@@ -47,3 +47,5 @@ Node IpAddress: [IP ADDRESS] Scope Id: []
     HOSTNAME2      <00>  UNIQUE      Registered
     WORKGROUP      <00>  GROUP       Registered
 ```
+
+SSH??

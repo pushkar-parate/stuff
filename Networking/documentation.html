@@ -312,6 +312,249 @@
         </article>
       </section>
 
+      <!-- SYSTEM PORTS -->
+       <section id="system-ports">
+        <h2 id="ports">System Ports - Transport Layer</h2>
+        <p>
+          There are various number of ports ranging: <b><em>0 - 65535</em></b>. They follow protocols like TCP and UDP. <br>
+          <b><em>TCP and UDP are Transport Layer Protocols meaning they are Port associated.</em></b>
+        </p>
+
+        <!-- Port Ranges Table -->
+<table>
+  <caption>SYSTEM PORTS RANGES</caption>
+    <thead>
+        <tr>
+            <th>Range</th>
+            <th>Name</th>
+            <th>Typical Use</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0–1023</td>
+            <td>Well-Known Ports</td>
+            <td>Standard services and protocols</td>
+        </tr>
+        <tr>
+            <td>1024–49151</td>
+            <td>Registered Ports</td>
+            <td>Applications and vendor-specific services</td>
+        </tr>
+        <tr>
+            <td>49152–65535</td>
+            <td>Dynamic / Ephemeral Ports</td>
+            <td>Temporary client-side connections</td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+
+<!-- Well-Known Ports Table -->
+<table>
+  <caption>COMMON PORTS</caption>
+    <thead>
+        <tr>
+            <th>Port</th>
+            <th>Protocol</th>
+            <th>Service</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>20, 21</td>
+            <td>TCP</td>
+            <td>FTP</td>
+        </tr>
+        <tr>
+            <td>22</td>
+            <td>TCP</td>
+            <td>SSH</td>
+        </tr>
+        <tr>
+            <td>25</td>
+            <td>TCP</td>
+            <td>SMTP</td>
+        </tr>
+        <tr>
+            <td>53</td>
+            <td>TCP/UDP</td>
+            <td>DNS</td>
+        </tr>
+        <tr>
+            <td>80</td>
+            <td>TCP</td>
+            <td>HTTP</td>
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>UDP</td>
+            <td>NTP</td>
+        </tr>
+        <tr>
+            <td>443</td>
+            <td>TCP</td>
+            <td>HTTPS</td>
+        </tr>
+    </tbody>
+</table>
+
+        <article id="transport-protocol" class="info-block">
+          <h3 id="port-protocols">Transport Protocols - TCP/UDP</h3>
+
+          <h4 id="tcp">Transmission Control Protocol - TCP</h4>
+          <p>
+            It is a slow but reliable protocol to send data. It makes a connection with browser and server and ensure safe and efficient delivery of data. if any packet is lost it transfers that specific packet again ensuring reliability. <br>
+            It has PORT STATES as it maintains connection throughout to ensure perfect delivery and request back data in case of loss.
+          </p>
+
+          <!-- PORT CONNECTION STATES -->
+<table>
+  <caption>TCP CONNECTION STATES</caption>
+    <thead>
+        <tr>
+            <th>State</th>
+            <th>Meaning</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>LISTENING</td>
+            <td>Waiting for incoming connection requests.</td>
+        </tr>
+        <tr>
+            <td>SYN_SENT</td>
+            <td>Connection request sent; waiting for response.</td>
+        </tr>
+        <tr>
+            <td>SYN_RECEIVED</td>
+            <td>Connection request received and acknowledged.</td>
+        </tr>
+        <tr>
+            <td>ESTABLISHED</td>
+            <td>Connection is active and data can be exchanged.</td>
+        </tr>
+        <tr>
+            <td>CLOSE_WAIT</td>
+            <td>Remote side closed; local application has not closed yet.</td>
+        </tr>
+        <tr>
+            <td>CLOSING</td>
+            <td>Both sides are attempting to close simultaneously.</td>
+        </tr>
+        <tr>
+            <td>LAST_ACK</td>
+            <td>Waiting for final acknowledgment after closing.</td>
+        </tr>
+        <tr>
+            <td>TIME_WAIT</td>
+            <td>Connection closed; waiting to ensure delayed packets expire.</td>
+        </tr>
+        <tr>
+            <td>CLOSED</td>
+            <td>Connection fully terminated.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4 id="udp">User Datagram Protocol - UDP</h4>
+<p>
+  Does not ensure safe delivery but <b><em>very fast compared to TCP but no guarantee of delivery</em></b>. Requsting of data on loss depends upon application or server.
+</p>
+<p>
+  <b><em>No connection state established, straight data transfer without ensuring safety just fast service.</em></b>
+</p>
+<br>
+<table>
+    <thead>
+        <tr>
+            <th>TCP (Reliability First)</th>
+            <th>UDP (Speed First)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Web browsing (HTTP/HTTPS)</td>
+            <td>Online gaming</td>
+        </tr>
+        <tr>
+            <td>File transfers</td>
+            <td>Voice calls (VoIP)</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>Video streaming</td>
+        </tr>
+        <tr>
+            <td>SSH / Remote administration</td>
+            <td>DNS queries</td>
+        </tr>
+        <tr>
+            <td>Database connections</td>
+            <td>Live broadcasts</td>
+        </tr>
+        <tr>
+            <td>Software downloads</td>
+            <td>Real-time telemetry</td>
+        </tr>
+        <tr>
+            <td>Banking and e-commerce</td>
+            <td>Video conferencing</td>
+        </tr>
+        <tr>
+            <td>APIs requiring guaranteed delivery</td>
+            <td>Multiplayer game updates</td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+
+<table>
+    <thead>
+        <tr>
+            <th>Requirement</th>
+            <th>TCP</th>
+            <th>UDP</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Every packet must arrive</td>
+            <td>✓</td>
+            <td>✗</td>
+        </tr>
+        <tr>
+            <td>Correct packet order matters</td>
+            <td>✓</td>
+            <td>✗</td>
+        </tr>
+        <tr>
+            <td>Fastest possible delivery</td>
+            <td>✗</td>
+            <td>✓</td>
+        </tr>
+        <tr>
+            <td>Can tolerate occasional packet loss</td>
+            <td>✗</td>
+            <td>✓</td>
+        </tr>
+        <tr>
+            <td>Automatic retransmission</td>
+            <td>✓</td>
+            <td>✗</td>
+        </tr>
+        <tr>
+            <td>Low latency is critical</td>
+            <td>✗</td>
+            <td>✓</td>
+        </tr>
+    </tbody>
+</table>
+        </article>
+       </section>
+
       <!-- IPv4 ADDRESSING -->
       <section id="ipv4-addressing-section">
         <h2 id="ipv4-addressing">IPv4 Addressing</h2>

@@ -164,7 +164,6 @@ main a:hover {
 
 /* give main content breathing room next to sidebar */
 main {
-  margin-left: 28%;
   padding-right: 2%
 }
 
@@ -194,45 +193,51 @@ nav li a {
 
         /* ----- HAMBURGER ----- */
         .menu-toggle {
-          position: sticky;
+          position: fixed;
+          top: 1rem;
+          left: 1rem;
           display: block;
           font-size: 1.5rem;
           background: none;
           border: none;
           cursor: pointer;
-          z-index: 100;
-          margin: 1%;
+          z-index: 1001;
+          padding: 0.4rem;
+          background-color: powderblue;
+          border-radius: 8px;
         }
 
 /* ===================== Sidebar / TOC ===================== */
 #sidebar {
-  position: relative;
-  left: 0;
+  position: fixed;
+  left: -25%;
   top: 0;
   bottom: 0;
-  width: 0;
-  max-height: 0;
+  width: min(25%, 16rem);
+  max-height: 100vh;
   opacity: 0;
   margin-top: 0;
   background: var(--bg);
   border-right: 1px solid var(--border-text);
-  transform: translateY(-20px);
   overflow-x: hidden;
-  overflow-y: hidden;
-  transition: width var(--transition-fast) ease, transform var(--transition-fast) ease, opacity var(--transition-fast) ease;
+  overflow-y: auto;
+  transition: left var(--transition-fast) ease, opacity var(--transition-fast) ease;
+  pointer-events: none;
+  z-index: 1000;
 }
 
 #sidebar.show {
-  position: absolute;
-  width: min(25%, 16rem);
+  left: 0;
+  opacity: 1;
+  pointer-events: auto;
+  transition: left 0.4s ease, opacity 0.3s ease-in-out;
+  padding-left: 1%;
   display: flex;
   flex-direction: column;
-  max-height: max-content;
-  opacity: 1;
-  transform: translateY(0);
-  padding-left: min(7.5%, 1.5rem);
-  padding-top: 0;
-  transition: transform 0.4s ease, opacity 0.3s ease-in-out;
+}
+
+#sidebar.show h2 {
+  align-self: anchor-center;
 }
 
 /* ===================== TOC List ===================== */
@@ -516,8 +521,14 @@ footer {
 }
 
 @media (max-width:550px) {
+  #sidebar {
+    width: min(62%, 16rem);
+    left: -62%;
+  }
+
   #sidebar.show {
-    width: min(32% ,16rem);
+    width: min(62%, 16rem);
+    left: 0;
   }
 
   /* Slightly reduce main text for small phones to improve fit */
