@@ -373,6 +373,11 @@
             <td>SSH</td>
         </tr>
         <tr>
+          <td>23</td>
+          <td>TCP</td>
+          <td>TELNET</td>
+        </tr>
+        <tr>
             <td>25</td>
             <td>TCP</td>
             <td>SMTP</td>
@@ -383,6 +388,11 @@
             <td>DNS</td>
         </tr>
         <tr>
+          <td>67, 68</td>
+          <td>UDP</td>
+          <td>DHCP</td>
+        </tr>
+        <tr>
             <td>80</td>
             <td>TCP</td>
             <td>HTTP</td>
@@ -390,7 +400,7 @@
         <tr>
             <td>123</td>
             <td>UDP</td>
-            <td>NTP</td>
+            <td>NTP <br> [Network-Time Synchronization Protocol]</td>
         </tr>
         <tr>
             <td>443</td>
@@ -552,6 +562,12 @@
         </tr>
     </tbody>
 </table>
+        </article>
+        <article id="telnet-command" class="info-block">
+          <h3 id="telnet">Telnet - PORT TESTING</h3>
+          <p>
+            TELNET command is used to test Layer 7 and Service Ports. <b><em>Test Ports of Servers for specific Services like 20, 21, 443, 53</em></b>. <br> Only use for this purpose cause there is no encryption adn connecting to devices will leak data.
+          </p>
         </article>
        </section>
 

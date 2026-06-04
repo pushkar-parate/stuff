@@ -85,6 +85,10 @@
         padding-bottom: min(6%, 0.75rem);
       }
 
+      img {
+        align-self: center;
+      }
+
 /* ===================== Typography ===================== */
 
 h1 {
@@ -164,13 +168,11 @@ main a:hover {
 
 /* give main content breathing room next to sidebar */
 main {
-  padding-right: 2%
+  padding: 0 2%;
 }
 
 main.max {
   width: min(100%, 95dvw);
-  padding: 0 0.9rem;
-  margin: auto;
 }
 
 /* ===================== Navigation ===================== */
@@ -351,10 +353,13 @@ nav li a {
 }
 
 .info-block img {
-  max-height: 100dvh;
-  width: auto;
+  width: 100%;
   display: block;
   margin-bottom: 1rem;
+}
+
+#conversions img {
+  width: fit-content;
 }
 
 /* ===================== Transmission Media Section ===================== */
