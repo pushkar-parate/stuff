@@ -13,7 +13,7 @@
         --transition-fast: 0.3s;
         --toc-h3-color: #024d67bd;
         --toc-h4-color: #00986170;
-        --toc-h5-color: #f39c12;
+        --toc-h5-color: var(--accent);
         --toc-h6-color: #e67e22;
       }
 
@@ -127,6 +127,8 @@ h4 {
   font-weight: 700;
 }
 
+h5 { color: var(--toc-h5-color); }
+
 /* ===================== Containers ===================== */
 
 div {
@@ -139,14 +141,6 @@ div {
   color: var(--bg);
   text-align: center;
   padding: 1rem;
-}
-
-footer {
-  background-color: var(--muted);
-  color: var(--bg);
-  text-align: center;
-  padding: 1rem 2rem;
-  margin-top: min(12%, 2rem);
 }
 
 footer p {
@@ -373,8 +367,8 @@ nav li a {
 
 /* ===================== Footer ===================== */
 footer {
-  background-color: #2c3e50;
-  color: #fff;
+  background-color: var(--muted);
+  color: var(--card);
   text-align: center;
   padding: 1rem;
   margin-top: 2rem;
@@ -410,6 +404,21 @@ table td {
   white-space: normal; /* ensure wrapping on small screens */
 }
 
+table th {
+  background-color: var(--sub-head);
+  color: var(--card);
+  font-weight: 670;
+}
+
+table tr:last-child td { border-bottom: none; }
+
+table tbody tr:hover {
+  background-color: rgba(243, 156, 18, 0.1);
+  border-radius: 7px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
 /* Make tables horizontally scrollable on very narrow viewports as a fallback */
 .table-responsive, article .info-block table, main table {
   max-width: 100%;
@@ -431,24 +440,6 @@ table td {
     -webkit-overflow-scrolling: touch;
   }
 }
-
-h5 { color: var(--toc-h5-color); }
-
-table th {
-  background-color: var(--sub-head);
-  color: var(--card);
-  font-weight: 670;
-}
-
-table tr:last-child td { border-bottom: none; }
-
-table tbody tr:hover {
-  background-color: rgba(243, 156, 18, 0.1);
-  border-radius: 7px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
 
 /* ===================== Responsive video embeds ===================== */
 /* Make iframe embeds (YouTube) responsive and visually polished */
@@ -495,15 +486,6 @@ main iframe:not([style]) {
   align-items: start;
 }
 
-/* ===================== Footer ===================== */
-footer {
-  background-color: var(--muted);
-  color: var(--card);
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
-  font-size: 0.9rem;
-}
 
 @media (min-width: 768px) {
   #transmission-media .info-block {

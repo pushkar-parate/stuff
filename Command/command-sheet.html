@@ -18,10 +18,12 @@
 
   <body>
     <header>
-      <!-- Fixed Sidebar -->
+      <!-- Sidebar -->
       <nav id="sidebar" aria-label="Page contents">
         <h2>Contents</h2>
-        <ul id="nav-list"></ul>
+        <ul id="nav-list">
+          <!-- TOC will be generated dynamically by JS -->
+        </ul>
       </nav>
     </header>
     <button class="menu-toggle" aria-label="Open menu">☰</button>
@@ -58,6 +60,18 @@
         "        Use for paths with spaces: "C:\My Folder\file.txt"
         \        Directory separator
    </code></pre>
+      </div>
+
+      <div class="section">
+        <h2>LOGICAL OPERATORS</h2>
+        <pre><code>
+eq       Equal to: tasklist /FI "PID eq 123"
+ne       Not equal to: tasklist /FI "PID ne 123"
+gt       Greater than: tasklist /FI "MEMUSAGE gt 50000"
+lt       Less than: tasklist /FI "PID lt 1000"
+ge       Greater than or equal to: tasklist /FI "PID ge 1000"
+le       Less than or equal to: tasklist /FI "PID le 500"
+  </code></pre>
       </div>
 
       <div class="section">
@@ -106,7 +120,13 @@
         <h2>TASK CONTROL & OBSERVATION</h2>
         <pre><code>
         tasklist                    List running tasks
+        tasklist /FI "PID eq 1234"
+        tasklist /FI "MEMUSAGE gt 10000"
+        tasklist /FI "IMAGENAME eq chrome.exe"
+        tasklist /FI "STATUS eq running"
         taskkill /pid [pid]         Kill a task [/f for forcefully]
+        tasklist /svc               Show which service is hosting the Process. Used when multiple same process like 'svchost.exe'
+
         sc query                    List all services
         sc query windefend          Get info for windefend
         sc query | findstr ""       Find serviice names by string

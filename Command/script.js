@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log(
     `Site loaded at :\n${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
   );
+
   const navList = document.getElementById("nav-list");
   const headings = document.querySelectorAll(
     "main h2, main h3, main h4, main h5, main h6",

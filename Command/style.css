@@ -35,7 +35,7 @@
         background: var(--border-text);
         border-radius: 0px;
       }
- 
+
       /* ScrollBar of SideBar*/
       #sidebar::-webkit-scrollbar {
         width: 6px;
@@ -77,12 +77,16 @@
       a {
         text-decoration: none;
         color: inherit;
-        font-size: clamp(0.5rem, calc(0.9dvw + 0.1rem), 1rem);
+        font-size: clamp(0.75rem, calc(1.1dvw + 0.1rem), 1.25rem);
       }
 
       p {
-        font-size: clamp(0.65rem, calc(1dvw + 0.1rem), 1.25rem);
+        font-size: clamp(0.85rem, calc(1.25dvw + 0.1rem), 1.5rem);
         padding-bottom: min(6%, 0.75rem);
+      }
+
+      img {
+        align-self: center;
       }
 
 /* ===================== Typography ===================== */
@@ -92,7 +96,7 @@ h1 {
   text-shadow: none;
   border-bottom: 2px solid var(--accent);
   margin-bottom: min(6%, 1rem);
-  font-size: clamp(1.5rem, calc(5dvw + 0.1rem), 2.5rem);
+  font-size: clamp(1.8rem, calc(5dvw + 0.25rem), 2.75rem);
 }
 
 h2 {
@@ -111,17 +115,20 @@ h3 {
   color: var(--sub-head);
   margin-top: min(8%, 1.5rem);
   font-weight: 550;
-  font-size: clamp(0.9rem, calc(1.5dvw + 0.2rem), 1.5rem);
+  font-size: clamp(1.1rem, calc(1.75dvw + 0.25rem), 1.75rem);
   margin-left: min(12%, 2.25rem);
 }
 
 h4 {
-  font-size: clamp(0.75rem, calc(1.25dvw + 0.25rem), 1.25rem);
+  font-size: clamp(0.9rem, calc(1.5dvw + 0.25rem), 1.5rem);
   color: var(--accent);
   margin-top: min(8%, 1.5rem);
   margin-left: min(15%, 2.75rem);
   font-weight: 700;
 }
+
+
+h5 { color: var(--toc-h5-color); }
 
 /* ===================== Containers ===================== */
 
@@ -137,71 +144,9 @@ div {
   padding: 1rem;
 }
 
-footer {
-  background-color: var(--muted);
-  color: var(--bg);
-  text-align: center;
-  padding: 1rem 2rem;
-  margin-top: min(12%, 2rem);
-}
-
 footer p {
-  font-size: clamp(0.5rem, calc(0.8dvw + 0.1rem), 1rem);
+  font-size: clamp(0.75rem, calc(1dvw + 0.1rem), 1.25rem);
 }
-
-/* ===================== Table Styling ===================== */
-
-      .wrap {
-        overflow-x: auto;
-
-        display: flex;
-        justify-content: center;
-      }
-      /* Make sure no scrollbar on overflow */
-      .wrap::-webkit-scrollbar,
-      .wrap table::-webkit-scrollbar {
-        display: none;
-      }
-
-      .wrap table {
-        width: min(100%, 1000px);
-        border-collapse: collapse;
-        background: var(--card);
-        border-radius: 16px;
-        overflow: hidden;
-        border: 1px solid var(--muted);
-      }
-
-      .wrap table th,
-      .wrap table td {
-        padding: 1rem 1.2rem;
-      }
-
-      .wrap table th {
-        text-align: center;
-      }
-
-      .wrap table td {
-        color: var(--muted);
-        font-weight: 500;
-        text-align: justify;
-        text-wrap-mode: wrap;
-        text-wrap-style: pretty;
-      }
-
-      .wrap table thead {
-        background: linear-gradient(100deg, #f3c612e1, #ffab23ce);
-        color: var(--bg);
-      }
-
-      .wrap table tbody tr {
-        border-bottom: 1px solid var(--text);
-      }
-
-      .wrap table td:first-child {
-        font-weight: 700;
-        color: var(--accent);
-      }
 
 /* ===================== Links ===================== */
 main a {
@@ -218,15 +163,83 @@ main a:hover {
 
 /* give main content breathing room next to sidebar */
 main {
-  margin-left: 28%;
-  padding-right: 2%;
+  padding: 0 2%;
 }
 
 main.max {
   width: min(100%, 95dvw);
-  padding: 0 0.9rem;
-  margin: auto;
 }
+
+/* ===================== Footer ===================== */
+footer {
+  background-color: var(--muted);
+  color: var(--card);
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+/* ===================== Table Styling ===================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  background-color: var(--card);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  table-layout: fixed; /* prevent long cells from expanding layout */
+}
+
+caption {
+  padding: 5px;
+  font-weight: 800;
+}
+
+table th,
+table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  word-break: break-word; /* allow long words/URLs to wrap */
+  overflow-wrap: anywhere;
+  white-space: normal; /* ensure wrapping on small screens */
+}
+
+table th {
+  background-color: var(--sub-head);
+  color: var(--card);
+  font-weight: 670;
+}
+
+table tr:last-child td { border-bottom: none; }
+
+table tbody tr:hover {
+  background-color: rgba(243, 156, 18, 0.1);
+  border-radius: 7px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Make tables horizontally scrollable on very narrow viewports as a fallback */
+.table-responsive, article .info-block table, main table {
+  max-width: 100%;
+}
+
+@media (max-width: 550px) {
+  /* Reduce padding and font-size so tables fit better */
+  table {
+    font-size: 0.95rem;
+  }
+
+  table th, table td {
+    padding: 0.5rem 0.6rem;
+  }
+}
+
 
 /* ===================== Code Blocks ===================== */
 pre {
@@ -287,45 +300,51 @@ nav li a {
 
         /* ----- HAMBURGER ----- */
         .menu-toggle {
-          position: sticky;
+          position: fixed;
+          top: 1rem;
+          left: 1rem;
           display: block;
           font-size: 1.5rem;
           background: none;
           border: none;
           cursor: pointer;
-          z-index: 100;
-          margin: 1%;
+          z-index: 1001;
+          padding: 0.4rem;
+          background-color: powderblue;
+          border-radius: 8px;
         }
-  
+
 /* ===================== Sidebar / TOC ===================== */
 #sidebar {
-  position: relative;
-  left: 0;
+  position: fixed;
+  left: -25%;
   top: 0;
   bottom: 0;
-  width: 0;
-  max-height: 0;
+  width: min(25%, 16rem);
+  max-height: 100vh;
   opacity: 0;
   margin-top: 0;
   background: var(--bg);
   border-right: 1px solid var(--border-text);
-  transform: translateY(-20px);
   overflow-x: hidden;
-  overflow-y: hidden;
-  transition: width var(--transition-fast) ease, transform var(--transition-fast) ease, opacity var(--transition-fast) ease;
+  overflow-y: auto;
+  transition: left var(--transition-fast) ease, opacity var(--transition-fast) ease;
+  pointer-events: none;
+  z-index: 1000;
 }
 
 #sidebar.show {
-  position: absolute;
-  width: min(25%, 16rem);
-  display: flex;    
-  flex-direction: column;
-  max-height: max-content;
+  left: 0;
   opacity: 1;
-  transform: translateY(0);
-  padding-left: min(7.5%, 1.5rem);
-  padding-top: 0;
-  transition: transform 0.4s ease, opacity 0.3s ease-in-out;
+  pointer-events: auto;
+  transition: left 0.4s ease, opacity 0.3s ease-in-out;
+  padding-left: 1%;
+  display: flex;
+  flex-direction: column;
+}
+
+#sidebar.show h2 {
+  align-self: anchor-center;
 }
 
 /* ===================== TOC List ===================== */
@@ -403,6 +422,143 @@ nav li a {
   display: block;
 }
 
+/* ===================== Info Blocks ===================== */
+.info-block {
+  background-color: var(--card);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.info-block:hover {
+  transform: translateY(-5px);
+}
+
+.info-block h3{
+  color: var(--muted);
+  margin-bottom: 0.8rem;
+  font-size: larger;
+}
+
+.info-block h4{
+  color: var(--muted);
+  margin-bottom: 0.8rem;
+  font-size: large;
+}
+
+.info-block h5, .info-block h6{
+  font-size: medium;
+}
+
+.info-block p {
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.info-block img {
+  width: 100%;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+#conversions img {
+  width: fit-content;
+}
+
+/* ===================== Transmission Media Section ===================== */
+#transmission-media .info-block {
+  flex-direction: column;
+}
+
+#transmission-media .info-block img {
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  #transmission-media .info-block {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+  #transmission-media .info-block img {
+    max-width: 200px;
+    margin-bottom: 0;
+  }
+}
+
+/* -------- SETTING: REDUCED-MOTION -------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@media (max-width: 550px) {
+  /* Reduce padding and font-size so tables fit better */
+  table {
+    font-size: 0.95rem;
+  }
+
+  table th, table td {
+    padding: 0.5rem 0.6rem;
+  }
+
+  /* Allow touch-friendly horizontal scrolling when content still overflows */
+  article .info-block {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ===================== Responsive video embeds ===================== */
+/* Make iframe embeds (YouTube) responsive and visually polished */
+.video-wrap {
+  width: 100%;
+  max-width: 100%;
+  margin: 1rem 0;
+  display: block;
+}
+
+/* Target common iframe locations (inside main, inside articles/info-blocks) */
+main iframe,
+.info-block iframe,
+.video-wrap iframe,
+article iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9; /* modern browsers */
+  max-width: 100%;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(13, 38, 63, 0.12);
+  display: block;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+#conversions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Fallback for older browsers: ensure a minimum height if aspect-ratio isn't supported */
+main iframe:not([style]) {
+  min-height: 220px;
+}
+
+/* Optional layout helper for side-by-side videos on wide screens */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+
 @media (min-width: 768px) {
   #transmission-media .info-block {
     flex-direction: row;
@@ -424,7 +580,47 @@ nav li a {
 }
 
 @media (max-width:550px) {
+  #sidebar {
+    width: min(62%, 16rem);
+    left: -62%;
+  }
+
   #sidebar.show {
-    width: min(32% ,16rem);
+    width: min(62%, 16rem);
+    left: 0;
+  }
+
+  /* Slightly reduce main text for small phones to improve fit */
+  main, body {
+    font-size: 0.95rem;
+  }
+
+  main p {
+    font-size: 0.92rem;
+  }
+
+  /* Reduce heading left indents and scale down headings a bit */
+  h1 {
+    font-size: clamp(1.6rem, calc(5dvw + 0.2rem), 2.2rem);
+  }
+
+  h2 {
+    margin-left: 0.8rem;
+    font-size: 1.4rem;
+  }
+
+  h3 {
+    margin-left: 1rem;
+    font-size: 1.1rem;
+  }
+
+  h4 {
+    margin-left: 1.25rem;
+    font-size: 1rem;
+  }
+
+  /* Slightly reduce link size within main content */
+  main a {
+    font-size: 0.95rem;
   }
 }
